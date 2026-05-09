@@ -45,17 +45,6 @@ func _ready() -> void:
 	origin = position
 	do_bob()
 
-func do_bob() -> void:
-	var new_pos := origin + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * BOB_RANGE
-	
-	var tween := create_tween()
-	
-	tween.tween_property(self, ^'position', new_pos, BOB_TIME)
-	
-	await tween.finished
-	
-	do_bob()
-
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group(&'player'):
 		return
@@ -81,6 +70,19 @@ func _on_body_entered(body: Node2D) -> void:
 	# free pearl
 	queue_free()
 
+## Handles playing a very simple bobbing animation
+func do_bob() -> void:
+	var new_pos := origin + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * BOB_RANGE
+	
+	var tween := create_tween()
+	
+	tween.tween_property(self, ^'position', new_pos, BOB_TIME)
+	
+	await tween.finished
+	
+	do_bob()
+
+## Sets up the texture and particles for the set variant
 func setup_variant() -> void:
 	$'sprite'.frame = int(variant)
 	$'particles'.texture = sparkle_variants[variant]

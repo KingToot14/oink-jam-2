@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Oink Jam 2"
-run/main_scene="uid://42ikcdklbj40"
+run/main_scene="uid://d108vei8hsme3"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KingToot/Oink Jam 2"
 config/features=PackedStringArray("4.6")

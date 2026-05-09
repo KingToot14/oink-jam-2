@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://d108vei8hsme3"]
 
+[ext_resource type="Script" uid="uid://ck5fw1tubjg42" path="res://scripts/game_loop/game_manager.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://dstl4l2tlagnx" path="res://scripts/game_loop/game_timer.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://42ikcdklbj40" path="res://scenes/main_level.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c3r2lks7wjia6" path="res://entities/player/player.tscn" id="3_sugp2"]
 
 [node name="main" type="Node2D" unique_id=604871667]
+script = ExtResource("1_jyhfs")
+
+[node name="game_timer" type="Node" parent="." unique_id=1555108083]
+script = ExtResource("1_sugp2")
+metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
 
