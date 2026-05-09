@@ -33,6 +33,9 @@ var force_timers: Dictionary[StringName, float] = {}
 var force_vectors: Dictionary[StringName, Vector2] = {}
 
 # --- Functions --- #
+func _ready() -> void:
+	Globals.player = self
+
 func _physics_process(delta: float) -> void:
 	# check dash
 	is_dashing = Input.is_action_pressed(&'do_dash')

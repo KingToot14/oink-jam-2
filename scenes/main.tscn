@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cpvt0fwpwtqe7" path="res://tiles/floors.tres" id="1_0wfyh"]
 [ext_resource type="TileSet" uid="uid://cd5mjlac3wcj" path="res://tiles/walls.tres" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c3r2lks7wjia6" path="res://entities/player/player.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://qph6j0xmn8uh" path="res://entities/pearl/pearl.tscn" id="4_jyhfs"]
 
 [node name="main" type="Node2D" unique_id=419102240]
 
@@ -15,3 +16,25 @@ tile_map_data = PackedByteArray("AAD8//7/AAADAAIAAAD8////AAADAAIAAAD8/wAAAAADAAI
 tile_set = ExtResource("2_sugp2")
 
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
+
+[node name="pearl" parent="." unique_id=992112990 instance=ExtResource("4_jyhfs")]
+position = Vector2(-40, 72)
+
+[node name="pearl_2" parent="." unique_id=1479243708 instance=ExtResource("4_jyhfs")]
+position = Vector2(-24, 72)
+variant = 1
+
+[node name="pearl_3" parent="." unique_id=885054882 instance=ExtResource("4_jyhfs")]
+position = Vector2(-8, 72)
+variant = 2
+
+[node name="pearl_4" parent="." unique_id=1325537094 instance=ExtResource("4_jyhfs")]
+position = Vector2(8, 72)
+variant = 2
+
+[node name="pearl_5" parent="." unique_id=195958439 instance=ExtResource("4_jyhfs")]
+position = Vector2(24, 72)
+variant = 1
+
+[node name="pearl_6" parent="." unique_id=1663730228 instance=ExtResource("4_jyhfs")]
+position = Vector2(40, 72)

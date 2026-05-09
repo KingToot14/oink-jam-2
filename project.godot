@@ -17,6 +17,11 @@ config/custom_user_dir_name="KingToot/Oink Jam 2"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*uid://b5lw4lxxrvbs0"
+CurrencyManager="*uid://rpp4xa48xrfs"
+
 [display]
 
 window/size/viewport_width=480
@@ -38,6 +43,10 @@ folder_colors={
 "res://tiles/": "orange",
 "res://ui/": "purple"
 }
+
+[global_group]
+
+player=""
 
 [input]
 

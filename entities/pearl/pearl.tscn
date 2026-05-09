@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://qph6j0xmn8uh"]
+
+[ext_resource type="Script" uid="uid://7nacnyym15ju" path="res://entities/pearl/pearl.gd" id="1_dl8w7"]
+[ext_resource type="Texture2D" uid="uid://c4qmmw7seq0mg" path="res://entities/pearl/main.png" id="2_01o6v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01o6v"]
+radius = 6.0
+
+[node name="pearl" type="Area2D" unique_id=992112990]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_dl8w7")
+metadata/_custom_type_script = "uid://7nacnyym15ju"
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=209670471]
+texture = ExtResource("2_01o6v")
+hframes = 3
+
+[node name="shape" type="CollisionShape2D" parent="." unique_id=28180376]
+visible = false
+shape = SubResource("CircleShape2D_01o6v")

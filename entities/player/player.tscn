@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abrql"]
 
-[node name="player" type="CharacterBody2D" unique_id=1913186933]
+[node name="player" type="CharacterBody2D" unique_id=1913186933 groups=["player"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_symyc")
