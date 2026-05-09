@@ -2,15 +2,68 @@
 
 [ext_resource type="Script" uid="uid://7nacnyym15ju" path="res://entities/pearl/pearl.gd" id="1_dl8w7"]
 [ext_resource type="Texture2D" uid="uid://c4qmmw7seq0mg" path="res://entities/pearl/main.png" id="2_01o6v"]
+[ext_resource type="Texture2D" uid="uid://b7n0ld5eov8fi" path="res://entities/pearl/particles.png" id="3_e16o1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3irae"]
+atlas = ExtResource("3_e16o1")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e16o1"]
+load_path = "res://.godot/imported/particles.png-4113750ad568dffa9a543f1174b54e57.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drdgv"]
+atlas = SubResource("CompressedTexture2D_e16o1")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ju7he"]
+load_path = "res://.godot/imported/particles.png-4113750ad568dffa9a543f1174b54e57.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b752"]
+atlas = SubResource("CompressedTexture2D_ju7he")
+region = Rect2(14, 0, 7, 7)
+
+[sub_resource type="Curve" id="Curve_e16o1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_e16o1"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01o6v"]
 radius = 6.0
 
 [node name="pearl" type="Area2D" unique_id=992112990]
+z_index = 50
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_dl8w7")
+sparkle_variants = Dictionary[int, Texture2D]({
+0: SubResource("AtlasTexture_3irae"),
+1: SubResource("AtlasTexture_drdgv"),
+2: SubResource("AtlasTexture_5b752")
+})
 metadata/_custom_type_script = "uid://7nacnyym15ju"
+
+[node name="particles" type="CPUParticles2D" parent="." unique_id=1461515103]
+z_index = -5
+emitting = false
+texture = SubResource("AtlasTexture_3irae")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_min = 90.0
+angular_velocity_max = 180.0
+damping_min = 20.0
+damping_max = 40.0
+scale_amount_curve = SubResource("Curve_e16o1")
+color_ramp = SubResource("Gradient_e16o1")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=209670471]
 texture = ExtResource("2_01o6v")

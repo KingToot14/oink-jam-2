@@ -26,6 +26,8 @@ CurrencyManager="*uid://rpp4xa48xrfs"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
 [editor]
