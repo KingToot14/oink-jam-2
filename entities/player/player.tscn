@@ -7,6 +7,8 @@
 
 [node name="player" type="CharacterBody2D" unique_id=1913186933]
 script = ExtResource("1_symyc")
+accel_mod = 1.5
+deccel_mod = 3.0
 metadata/_custom_type_script = "uid://t766j2pqsoyr"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=94609615]

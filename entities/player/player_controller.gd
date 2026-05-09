@@ -2,8 +2,12 @@ class_name PlayerController
 extends CharacterBody2D
 
 # --- Variables --- #
+@export var accel_mod := 2.0
+@export var deccel_mod := 4.0
 @export var move_speed := 50.0
 @export var turn_speed := 50.0
+
+var curr_speed := 0.0
 
 var is_dashing := false
 
@@ -22,9 +26,23 @@ func _physics_process(delta: float) -> void:
 	else:
 		rotation_degrees += turn_dir * turn_speed * delta
 	
-	velocity = Vector2.from_angle(rotation + PI / 2.0) * move_speed * move_dir
+	# update acceleration
+	if move_dir == 0.0:
+		# deccelerate
+		if curr_speed < 0.0:
+			curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, 0.0)
+		if curr_speed > 0.0:
+			curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, 0.0)
+	else:
+		# accelerate
+		curr_speed = clampf(curr_speed + move_speed * accel_mod * delta * move_dir, -move_speed, move_speed)
 	
-	move_and_slide()
+	# do movement
+	velocity = Vector2.from_angle(rotation + PI / 2.0) * curr_speed
+	
+	var collision := move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.slide(collision.get_normal())
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'fire_cannon'):
