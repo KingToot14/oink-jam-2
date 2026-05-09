@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" format=3 uid="uid://cpvt0fwpwtqe7"]
+
+[ext_resource type="Texture2D" uid="uid://dqwgormoigrpo" path="res://tiles/sand_floor.png" id="1_oewat"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mhry8"]
+resource_name = "sand floor"
+texture = ExtResource("1_oewat")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_mhry8")

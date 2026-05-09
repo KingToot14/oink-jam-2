@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c3r2lks7wjia6"]
+
+[ext_resource type="Script" uid="uid://t766j2pqsoyr" path="res://entities/player/player_controller.gd" id="1_symyc"]
+[ext_resource type="Texture2D" uid="uid://dfayk3i0ewnia" path="res://entities/player/main.png" id="2_abrql"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abrql"]
+
+[node name="player" type="CharacterBody2D" unique_id=1913186933]
+script = ExtResource("1_symyc")
+metadata/_custom_type_script = "uid://t766j2pqsoyr"
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=94609615]
+texture = ExtResource("2_abrql")
+
+[node name="shape" type="CollisionShape2D" parent="." unique_id=1828483181]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_abrql")
+
+[node name="cam" type="Camera2D" parent="." unique_id=502475836]
