@@ -1,5 +1,8 @@
 extends Node
 
+# --- Signals --- #
+signal pearl_collected()
+
 # --- Variables --- #
 ## The current number of each pearl type the player has collected
 var pearl_counts: Dictionary[Pearl.PearlVariant, int] = {}
@@ -20,4 +23,4 @@ func clear_counts() -> void:
 func collect_pearl(variant: Pearl.PearlVariant) -> void:
 	pearl_counts[variant] += 1
 	
-	print(pearl_counts)
+	pearl_collected.emit()

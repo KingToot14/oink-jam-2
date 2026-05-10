@@ -2,16 +2,247 @@
 
 [ext_resource type="Script" uid="uid://ck5fw1tubjg42" path="res://scripts/game_loop/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://dstl4l2tlagnx" path="res://scripts/game_loop/game_timer.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://42ikcdklbj40" path="res://scenes/main_level.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c3r2lks7wjia6" path="res://entities/player/player.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://b2i4ummqn048l" path="res://ui/gameplay/gameplay_ui.gd" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dwjtwwgagyq0y" path="res://ui/gameplay/oxygen_meter.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dltorb6fyix47" path="res://ui/gameplay/oxygen_bar.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dp84an16v4g21" path="res://ui/gameplay/currency_meter.png" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://bddi2jca8vfbk" path="res://ui/gameplay/currency_icons.png" id="9_85g3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("9_85g3d")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("9_85g3d")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("9_85g3d")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("9_85g3d")
+region = Rect2(24, 0, 8, 8)
 
 [node name="main" type="Node2D" unique_id=604871667]
 script = ExtResource("1_jyhfs")
 
 [node name="game_timer" type="Node" parent="." unique_id=1555108083]
+unique_name_in_owner = true
 script = ExtResource("1_sugp2")
 metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
 
-[node name="level" parent="." unique_id=419102240 instance=ExtResource("2_0wfyh")]
+[node name="ui" type="CanvasLayer" parent="." unique_id=529712363]
+script = ExtResource("5_o6xl0")
+
+[node name="oxygen_bar" type="TextureRect" parent="ui" unique_id=1142015908]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 102.0
+grow_vertical = 0
+texture = ExtResource("5_tbgi4")
+
+[node name="bar_display" type="Control" parent="ui/oxygen_bar" unique_id=1137249821]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 16.0
+offset_right = 98.0
+offset_bottom = 28.0
+
+[node name="fill" type="NinePatchRect" parent="ui/oxygen_bar/bar_display" unique_id=1694579941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_tefeu")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="sec_display" type="Control" parent="ui/oxygen_bar" unique_id=2042050404]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 38.0
+offset_bottom = 13.0
+
+[node name="sec_label" type="RichTextLabel" parent="ui/oxygen_bar/sec_display" unique_id=2084213625]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=#2f69a3]200[/color][color=#255994]s[/color]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="currency_bar" type="TextureRect" parent="ui" unique_id=1007306195]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_tipki")
+
+[node name="white_holder" type="Control" parent="ui/currency_bar" unique_id=1932832748]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 35.0
+offset_bottom = -6.0
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="ui/currency_bar/white_holder" unique_id=604174434]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_choun")
+
+[node name="white_label" type="RichTextLabel" parent="ui/currency_bar/white_holder" unique_id=1632094127]
+unique_name_in_owner = true
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 12.0
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pink_holder" type="Control" parent="ui/currency_bar" unique_id=1620056752]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 16.0
+offset_right = 66.0
+offset_bottom = -6.0
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="ui/currency_bar/pink_holder" unique_id=161301775]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_85g3d")
+
+[node name="pink_label" type="RichTextLabel" parent="ui/currency_bar/pink_holder" unique_id=807009612]
+unique_name_in_owner = true
+self_modulate = Color(0.8745098, 0.7411765, 0.9019608, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 12.0
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="black_holder" type="Control" parent="ui/currency_bar" unique_id=423121125]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 16.0
+offset_right = 97.0
+offset_bottom = -6.0
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="ui/currency_bar/black_holder" unique_id=2102462677]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ya4ey")
+
+[node name="black_label" type="RichTextLabel" parent="ui/currency_bar/black_holder" unique_id=2034400902]
+unique_name_in_owner = true
+self_modulate = Color(0.47843137, 0.4745098, 0.47843137, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 12.0
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gold_holder" type="Control" parent="ui/currency_bar" unique_id=1255591933]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 2.0
+offset_right = 95.0
+offset_bottom = -20.0
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="ui/currency_bar/gold_holder" unique_id=410546069]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 9.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_eb6dy")
+
+[node name="gold_label" type="RichTextLabel" parent="ui/currency_bar/gold_holder" unique_id=1803385473]
+unique_name_in_owner = true
+self_modulate = Color(0.85882354, 0.7294118, 0.078431375, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20,000"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

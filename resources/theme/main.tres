@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://p5w5hxd7nwav"]
+
+[ext_resource type="FontFile" uid="uid://k8cpf0l7s0ju" path="res://ui/font/pressure_pixel.ttf" id="1_s6ias"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 9
+RichTextLabel/fonts/normal_font = ExtResource("1_s6ias")

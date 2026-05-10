@@ -17,8 +17,9 @@ var level: Node2D
 
 # --- Functions --- #
 func _ready() -> void:
-	$'game_timer'.start_timer()
 	$'game_timer'.timer_ended.connect(reload_game)
+	
+	reload_game()
 
 ## Reloads the currently loaded game
 func reload_game() -> void:

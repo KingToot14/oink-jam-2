@@ -50,6 +50,10 @@ folder_colors={
 
 player=""
 
+[gui]
+
+theme/custom="uid://p5w5hxd7nwav"
+
 [input]
 
 move_forward={

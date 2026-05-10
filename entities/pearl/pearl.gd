@@ -43,7 +43,9 @@ func _ready() -> void:
 	setup_variant()
 	
 	origin = position
-	do_bob()
+
+func _process(_delta: float) -> void:
+	global_position.y = origin.y + sin(((Time.get_ticks_msec() / 1000.0) + origin.x + origin.y) * BOB_TIME)
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group(&'player'):
@@ -69,18 +71,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	# free pearl
 	queue_free()
-
-## Handles playing a very simple bobbing animation
-func do_bob() -> void:
-	var new_pos := origin + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * BOB_RANGE
-	
-	var tween := create_tween()
-	
-	tween.tween_property(self, ^'position', new_pos, BOB_TIME)
-	
-	await tween.finished
-	
-	do_bob()
 
 ## Sets up the texture and particles for the set variant
 func setup_variant() -> void:
