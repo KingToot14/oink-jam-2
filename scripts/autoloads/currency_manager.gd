@@ -25,6 +25,9 @@ func clear_counts() -> void:
 		Pearl.PearlVariant.PINK:  0,
 		Pearl.PearlVariant.BLACK: 0,
 	}
+	
+	# trigger updates
+	pearl_collected.emit()
 
 ## Add a pearl of type [param variant] to the [member pearl_counts]
 func collect_pearl(variant: Pearl.PearlVariant) -> void:
@@ -35,6 +38,12 @@ func collect_pearl(variant: Pearl.PearlVariant) -> void:
 ## Adds gold to the current count
 func add_gold(amount: int) -> void:
 	curr_gold += amount
+	
+	gold_updated.emit()
+
+## Removes gold from the current count
+func remove_gold(amount: int) -> void:
+	curr_gold -= amount
 	
 	gold_updated.emit()
 

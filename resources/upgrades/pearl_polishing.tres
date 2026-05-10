@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b1aj4d41enbko"]
+
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_ehkcp"]
+
+[resource]
+script = ExtResource("1_ehkcp")
+name = "Pearl Polishing"
+metadata/_custom_type_script = "uid://b1ph6t32gauix"

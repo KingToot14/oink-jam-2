@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://cbx6sw27cwepb"]
+
+[ext_resource type="Texture2D" uid="uid://dkpvfw281amch" path="res://ui/smooth_panel.png" id="1_pkvyj"]
+[ext_resource type="Script" uid="uid://cm4rrasenyr6i" path="res://ui/upgrades/upgrade_box.gd" id="1_ro7to"]
+[ext_resource type="Texture2D" uid="uid://bddi2jca8vfbk" path="res://ui/gameplay/currency_icons.png" id="3_737eu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xi3k"]
+atlas = ExtResource("3_737eu")
+region = Rect2(24, 0, 8, 8)
+
+[node name="upgrade_box" type="BaseButton" unique_id=2016695327 node_paths=PackedStringArray("fill")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(150, 24)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 24.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("1_ro7to")
+normal_color = Color(0.16862746, 0.18039216, 0.20784314, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="." unique_id=1007124396]
+self_modulate = Color(0.16862746, 0.18039216, 0.20784314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pkvyj")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="image_fill" type="NinePatchRect" parent="." unique_id=1725748992]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pkvyj")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="title" type="RichTextLabel" parent="." unique_id=1823239504]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 35.0
+offset_top = 2.0
+offset_right = -29.0
+offset_bottom = 13.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.8117647, 0.85882354, 0.9019608, 1)
+text = "Hull Strength"
+scroll_active = false
+
+[node name="icon" type="TextureRect" parent="." unique_id=563763870]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 10.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_4xi3k")
+
+[node name="cost" type="RichTextLabel" parent="." unique_id=42063874]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 45.0
+offset_top = 14.0
+offset_right = -29.0
+offset_bottom = 25.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85882354, 0.7294118, 0.078431375, 1)
+text = "20,000"
+scroll_active = false
+
+[node name="level" type="RichTextLabel" parent="." unique_id=1792947682]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 112.0
+offset_top = 4.0
+offset_right = -2.0
+offset_bottom = 23.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.62352943, 0.7019608, 0.8, 1)
+text = "Lvl 30"
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="try_upgrade"]

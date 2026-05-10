@@ -24,7 +24,7 @@ func _ready() -> void:
 	update_gold_display()
 
 func _on_timer_updated(sec: int) -> void:
-	%'sec_label'.text = "[color=#2f69a3]%s[/color][color=#255994]s[/color]" % sec
+	%'sec_label'.text = "%s[color=#255994]s[/color]" % sec
 
 func _on_pearl_collected() -> void:
 	%'white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]

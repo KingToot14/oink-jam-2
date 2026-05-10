@@ -1,4 +1,4 @@
-class_name DeathPanel
+class_name UpgradeManager
 extends Control
 
 # --- Variables --- #
@@ -8,25 +8,36 @@ const TWEEN_TIME := 0.15
 ## The original y position of this panel
 var origin: float
 
+## Maps upgrade resources to a key. Used in the [method get_upgrade_value] method
+@export var upgrades: Dictionary[StringName, Upgrade] = {}
+
 # --- Functions --- #
 func _ready() -> void:
+	# set up signals
+	CurrencyManager.gold_updated.connect(_on_gold_updated)
+	
 	# store origin
 	origin = position.y
-	
+
 	# hide panel originally
 	hide()
 
+func _on_gold_updated() -> void:
+	$'gold_holder/gold_label'.text = "%s" % CurrencyManager.curr_gold
+
+## Gets the current value of the upgrade identified by [param upgrade_key]. This
+## uses [method Upgrade.get_value] to get the correct value
+func get_upgrade_value(upgrade_key: StringName) -> float:
+	if upgrade_key not in upgrades.keys():
+		return 0.0
+	
+	return upgrades[upgrade_key].get_value()
+
+#region Visuals
 ## Shows the panel by animating it using tweening
 func show_panel() -> void:
-	# update counters
-	$'white_holder/white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]
-	$'pink_holder/pink_label'.text   = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.PINK]
-	$'black_holder/black_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.BLACK]
-	
-	# sell pearls
-	var new_gold := CurrencyManager.sell_pearls()
-	
-	$'gold_holder/gold_label'.text = "[color=#c7a20e]+[/color]%s" % new_gold
+	# update currency
+	$'gold_holder/gold_label'.text = "%s" % CurrencyManager.curr_gold
 	
 	# show panel
 	modulate.a = 0.0
@@ -46,3 +57,5 @@ func hide_panel() -> void:
 	tween.tween_property(self, ^'position:y', origin + 8, TWEEN_TIME)
 	
 	tween.finished.connect(hide)
+
+#endregion

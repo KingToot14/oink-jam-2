@@ -12,6 +12,17 @@
 [ext_resource type="Script" uid="uid://crshsoplx88kf" path="res://ui/gameplay/death_panel.gd" id="9_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://dkpvfw281amch" path="res://ui/smooth_panel.png" id="10_choun"]
 [ext_resource type="Script" uid="uid://0simyse5dedc" path="res://ui/gameplay/simple_button.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://brog8ctves5fc" path="res://ui/upgrades/upgrade_manager.gd" id="13_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://cbx6sw27cwepb" path="res://ui/upgrades/upgrade_box.tscn" id="13_trceg"]
+[ext_resource type="Resource" uid="uid://drsqr17s77cpw" path="res://resources/upgrades/hull_strength.tres" id="14_a8y0u"]
+[ext_resource type="Resource" uid="uid://cg548sri2iseq" path="res://resources/upgrades/hull_capacity.tres" id="15_jkv2x"]
+[ext_resource type="Resource" uid="uid://bqeo13baeennt" path="res://resources/upgrades/propeller_blades.tres" id="16_muem4"]
+[ext_resource type="Resource" uid="uid://krnbrah85ord" path="res://resources/upgrades/propeller_body.tres" id="17_dp3eg"]
+[ext_resource type="Resource" uid="uid://doykvw5b37jrv" path="res://resources/upgrades/jet_thrust.tres" id="18_jscy8"]
+[ext_resource type="Resource" uid="uid://bhqwf5keq8yco" path="res://resources/upgrades/jet_capacity.tres" id="19_pm3ni"]
+[ext_resource type="Resource" uid="uid://b7m2hjyho11f8" path="res://resources/upgrades/cannon_power.tres" id="20_y6deb"]
+[ext_resource type="Resource" uid="uid://cm8tecaa3beam" path="res://resources/upgrades/cannon_capacity.tres" id="21_og1vs"]
+[ext_resource type="Resource" uid="uid://b1aj4d41enbko" path="res://resources/upgrades/pearl_polishing.tres" id="22_2wyq8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("9_85g3d")
@@ -49,6 +60,7 @@ anchor_bottom = 1.0
 offset_top = -34.0
 offset_right = 102.0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("5_tbgi4")
 
 [node name="bar_display" type="Control" parent="ui/oxygen_bar" unique_id=1137249821]
@@ -57,6 +69,7 @@ offset_left = 6.0
 offset_top = 16.0
 offset_right = 98.0
 offset_bottom = 28.0
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/oxygen_bar/bar_display" unique_id=1694579941]
 layout_mode = 1
@@ -77,6 +90,7 @@ offset_left = 8.0
 offset_top = 3.0
 offset_right = 38.0
 offset_bottom = 13.0
+mouse_filter = 2
 
 [node name="sec_label" type="RichTextLabel" parent="ui/oxygen_bar/sec_display" unique_id=2084213625]
 unique_name_in_owner = true
@@ -87,8 +101,10 @@ anchor_bottom = 1.0
 offset_top = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.18431373, 0.4117647, 0.6392157, 1)
 bbcode_enabled = true
-text = "[color=#2f69a3]200[/color][color=#255994]s[/color]"
+text = "200[color=#255994]s[/color]"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -103,6 +119,7 @@ offset_left = -102.0
 offset_top = -34.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("8_tipki")
 
 [node name="white_holder" type="Control" parent="ui/currency_bar" unique_id=1932832748]
@@ -114,6 +131,7 @@ offset_top = 16.0
 offset_right = 35.0
 offset_bottom = -6.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="ui/currency_bar/white_holder" unique_id=604174434]
 layout_mode = 1
@@ -125,6 +143,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_choun")
 
 [node name="white_label" type="RichTextLabel" parent="ui/currency_bar/white_holder" unique_id=1632094127]
@@ -135,6 +154,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -150,6 +170,7 @@ offset_top = 16.0
 offset_right = 66.0
 offset_bottom = -6.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="ui/currency_bar/pink_holder" unique_id=161301775]
 layout_mode = 1
@@ -161,6 +182,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_85g3d")
 
 [node name="pink_label" type="RichTextLabel" parent="ui/currency_bar/pink_holder" unique_id=807009612]
@@ -171,6 +193,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -186,6 +209,7 @@ offset_top = 16.0
 offset_right = 97.0
 offset_bottom = -6.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="ui/currency_bar/black_holder" unique_id=2102462677]
 layout_mode = 1
@@ -197,6 +221,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ya4ey")
 
 [node name="black_label" type="RichTextLabel" parent="ui/currency_bar/black_holder" unique_id=2034400902]
@@ -207,6 +232,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -222,6 +248,7 @@ offset_top = 2.0
 offset_right = 95.0
 offset_bottom = -20.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="icon" type="TextureRect" parent="ui/currency_bar/gold_holder" unique_id=410546069]
 layout_mode = 1
@@ -233,11 +260,11 @@ offset_top = -4.0
 offset_right = 9.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_eb6dy")
 
 [node name="gold_label" type="RichTextLabel" parent="ui/currency_bar/gold_holder" unique_id=1803385473]
 unique_name_in_owner = true
-self_modulate = Color(0.85882354, 0.7294118, 0.078431375, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,6 +273,8 @@ offset_left = 12.0
 offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85882354, 0.7294118, 0.078431375, 1)
 text = "20,000"
 scroll_active = false
 autowrap_mode = 0
@@ -254,6 +283,7 @@ vertical_alignment = 1
 
 [node name="death_oxygen" type="Control" parent="ui" unique_id=1660251587]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -266,6 +296,7 @@ offset_right = 80.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("9_eb6dy")
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen" unique_id=1428961736]
@@ -291,6 +322,7 @@ offset_top = 4.0
 offset_right = 40.0
 offset_bottom = 18.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen/title" unique_id=616804187]
 self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
@@ -316,6 +348,7 @@ offset_left = 1.0
 offset_top = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 text = "Out of Oxygen!"
 scroll_active = false
 autowrap_mode = 0
@@ -331,6 +364,7 @@ offset_top = 23.0
 offset_right = 64.0
 offset_bottom = -45.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen/white_holder" unique_id=1691933494]
 self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
@@ -371,6 +405,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_choun")
 
 [node name="white_label" type="RichTextLabel" parent="ui/death_oxygen/white_holder" unique_id=974550637]
@@ -380,6 +415,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -395,6 +431,7 @@ offset_top = 23.0
 offset_right = 95.0
 offset_bottom = -45.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen/pink_holder" unique_id=1417290412]
 self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
@@ -435,6 +472,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_85g3d")
 
 [node name="pink_label" type="RichTextLabel" parent="ui/death_oxygen/pink_holder" unique_id=1722247028]
@@ -444,6 +482,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -459,6 +498,7 @@ offset_top = 23.0
 offset_right = 126.0
 offset_bottom = -45.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen/black_holder" unique_id=324884692]
 self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
@@ -499,6 +539,7 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ya4ey")
 
 [node name="black_label" type="RichTextLabel" parent="ui/death_oxygen/black_holder" unique_id=1822312270]
@@ -508,6 +549,7 @@ offset_left = 13.0
 offset_top = 2.0
 offset_right = 31.0
 offset_bottom = 12.0
+mouse_filter = 2
 text = "20"
 scroll_active = false
 autowrap_mode = 0
@@ -523,6 +565,7 @@ offset_top = 40.0
 offset_right = 114.0
 offset_bottom = -28.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="fill" type="NinePatchRect" parent="ui/death_oxygen/gold_holder" unique_id=1160582503]
 self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
@@ -563,10 +606,10 @@ offset_top = -4.0
 offset_right = 10.0
 offset_bottom = 4.0
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_eb6dy")
 
 [node name="gold_label" type="RichTextLabel" parent="ui/death_oxygen/gold_holder" unique_id=779234944]
-self_modulate = Color(0.85882354, 0.7294118, 0.078431375, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -575,7 +618,10 @@ offset_left = 12.0
 offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "+20,000"
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85882354, 0.7294118, 0.078431375, 1)
+bbcode_enabled = true
+text = "[color=#c7a20e]+[/color]20,000"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -870,4 +916,329 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="upgrades" type="Control" parent="ui" unique_id=547679819]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -88.0
+offset_right = 160.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_pm3ni")
+
+[node name="fill" type="NinePatchRect" parent="ui/upgrades" unique_id=1114373527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_choun")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Control" parent="ui/upgrades" unique_id=73400913]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 18.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/upgrades/title" unique_id=1464181061]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/upgrades/title" unique_id=976891411]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "UPGRADES"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="h_flow_container" type="HFlowContainer" parent="ui/upgrades" unique_id=2123410602]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -66.0
+offset_right = 154.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 3
+alignment = 1
+
+[node name="upgrade_box" parent="ui/upgrades/h_flow_container" unique_id=1274575360 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("14_a8y0u")
+
+[node name="upgrade_box_2" parent="ui/upgrades/h_flow_container" unique_id=2016695327 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("15_jkv2x")
+
+[node name="upgrade_box_3" parent="ui/upgrades/h_flow_container" unique_id=1485223563 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("16_muem4")
+
+[node name="upgrade_box_4" parent="ui/upgrades/h_flow_container" unique_id=2101571521 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("17_dp3eg")
+
+[node name="upgrade_box_5" parent="ui/upgrades/h_flow_container" unique_id=2143043354 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("18_jscy8")
+
+[node name="upgrade_box_6" parent="ui/upgrades/h_flow_container" unique_id=1663292456 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("19_pm3ni")
+
+[node name="upgrade_box_7" parent="ui/upgrades/h_flow_container" unique_id=978033704 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("20_y6deb")
+
+[node name="upgrade_box_8" parent="ui/upgrades/h_flow_container" unique_id=1589364462 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("21_og1vs")
+
+[node name="upgrade_box_9" parent="ui/upgrades/h_flow_container" unique_id=434812797 instance=ExtResource("13_trceg")]
+layout_mode = 2
+upgrade = ExtResource("22_2wyq8")
+
+[node name="gold_holder" type="Control" parent="ui/upgrades" unique_id=1751396772]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 158.0
+offset_right = 59.0
+offset_bottom = -6.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/upgrades/gold_holder" unique_id=2044895607]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon_fill" type="NinePatchRect" parent="ui/upgrades/gold_holder" unique_id=458069054]
+self_modulate = Color(0.105882354, 0.11372549, 0.14117648, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -41.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon" type="TextureRect" parent="ui/upgrades/gold_holder" unique_id=2132397491]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_eb6dy")
+
+[node name="gold_label" type="RichTextLabel" parent="ui/upgrades/gold_holder" unique_id=1214825358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85882354, 0.7294118, 0.078431375, 1)
+bbcode_enabled = true
+text = "20,000"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry_button" type="BaseButton" parent="ui/upgrades" unique_id=2017148981 node_paths=PackedStringArray("fill", "underline")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -19.0
+offset_right = -6.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+underline = NodePath("underline")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="ui/upgrades/retry_button" unique_id=1075702742]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="text" type="RichTextLabel" parent="ui/upgrades/retry_button" unique_id=1730760787]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Continue"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="underline" type="ColorRect" parent="ui/upgrades/retry_button" unique_id=1816010308]
+self_modulate = Color(0.62352943, 0.7019608, 0.8, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 48.0
+offset_bottom = 12.0
+mouse_filter = 2
+
 [connection signal="pressed" from="ui/death_oxygen/retry_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/death_oxygen/upgrade_button" to="." method="open_upgrades"]
+[connection signal="pressed" from="ui/upgrades/retry_button" to="." method="load_level"]

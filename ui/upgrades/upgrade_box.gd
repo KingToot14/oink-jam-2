@@ -1,0 +1,34 @@
+@tool
+class_name UpgradeBox
+extends SimpleButton
+
+# --- Variables --- #
+@export var upgrade: Upgrade:
+	set(_val):
+		upgrade = _val
+		update_info()
+
+# --- Functions --- #
+func _ready() -> void:
+	super()
+	
+	update_info()
+
+func update_info() -> void:
+	if not upgrade:
+		return
+	
+	$'title'.text = upgrade.name
+	$'level'.text = "Lvl %s" % upgrade.level
+	
+	$'cost'.text = "%s" % upgrade.get_cost()
+
+func try_upgrade() -> void:
+	if not upgrade:
+		return
+	
+	# try upgrade
+	if not upgrade.try_upgrade_level():
+		return
+	
+	update_info()

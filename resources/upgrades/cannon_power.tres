@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b7m2hjyho11f8"]
+
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_km8p0"]
+
+[resource]
+script = ExtResource("1_km8p0")
+name = "Cannon Power"
+metadata/_custom_type_script = "uid://b1ph6t32gauix"

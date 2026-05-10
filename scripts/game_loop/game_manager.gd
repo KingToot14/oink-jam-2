@@ -26,21 +26,37 @@ func _ready() -> void:
 	
 	reload_game()
 
+## Sets the game state
+func set_game_state(state: GameState) -> void:
+	game_state = state
+
 ## Reloads the currently loaded game
 func reload_game() -> void:
-	if level:
-		level.queue_free()
-	
 	# hide death panels
 	%'death_oxygen'.hide_panel()
 	
 	# TODO: Add a transition
 	
+	load_level()
+
+## Reloads the currently loaded game
+func open_upgrades() -> void:
+	# hide death panels
+	%'upgrades'.show_panel()
+	
+	# TODO: Add a transition
+
+## Loads/Reloads the main level scene and sets up the player
+func load_level() -> void:
+	if level:
+		level.queue_free()
+	
+	# hide menus
+	%'death_oxygen'.hide_panel()
+	%'upgrades'.hide_panel()
+	
 	# reset level
 	$'player'.reset()
-	
-	# TODO: Remove this when the loading system is a bit better. This just stops accidental collection
-	await get_tree().create_timer(0.25).timeout
 	
 	level = MAIN_GAME_SCENE.instantiate()
 	level.name = "level"
@@ -52,7 +68,3 @@ func reload_game() -> void:
 	$'player'.start_game()
 	
 	set_game_state(GameState.GAMEPLAY)
-
-## Sets the game state
-func set_game_state(state: GameState) -> void:
-	game_state = state
