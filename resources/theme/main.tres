@@ -3,5 +3,5 @@
 [ext_resource type="FontFile" uid="uid://k8cpf0l7s0ju" path="res://ui/font/pressure_pixel.ttf" id="1_s6ias"]
 
 [resource]
-RichTextLabel/font_sizes/normal_font_size = 9
+RichTextLabel/font_sizes/normal_font_size = 11
 RichTextLabel/fonts/normal_font = ExtResource("1_s6ias")

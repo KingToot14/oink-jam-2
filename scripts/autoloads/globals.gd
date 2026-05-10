@@ -1,7 +1,10 @@
 extends Node
 
 # --- Variables --- #
+## The root of the game
+var main: GameManager
+
 ## The current instance of the player controller
-@export var player: PlayerController
+var player: PlayerController
 
 # --- Functions --- #

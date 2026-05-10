@@ -37,6 +37,10 @@ func _ready() -> void:
 	Globals.player = self
 
 func _physics_process(delta: float) -> void:
+	# only move when in gameplay
+	if Globals.main.game_state != GameManager.GameState.GAMEPLAY:
+		return
+	
 	# check dash
 	is_dashing = Input.is_action_pressed(&'do_dash')
 	
@@ -107,6 +111,28 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'fire_cannon'):
 		fire_cannon(get_global_mouse_position())
+
+## Resets all components of the player's position and physics. This includes
+## rotation, current speed, and impuse forces
+func reset() -> void:
+	# position
+	position = Vector2.ZERO
+	rotation = 0
+	
+	# speed
+	velocity = Vector2.ZERO
+	curr_speed = 0
+	
+	# forces
+	force_timers = {}
+	force_times = {}
+	force_vectors = {}
+	
+	# disable collision
+	$'shape'.set_deferred(&'disabled', true)
+
+func start_game() -> void:
+	$'shape'.set_deferred(&'disabled', false)
 
 ## Fires a single torpedo towards the [member mouse_pos]
 func fire_cannon(mouse_pos: Vector2) -> void:
