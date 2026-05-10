@@ -23,6 +23,11 @@ func show_panel() -> void:
 	$'pink_holder/pink_label'.text   = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.PINK]
 	$'black_holder/black_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.BLACK]
 	
+	# sell pearls
+	var new_gold := CurrencyManager.sell_pearls()
+	
+	$'gold_holder/gold_label'.text = "+%s" % new_gold
+	
 	# show panel
 	modulate.a = 0.0
 	position.y = origin + 8

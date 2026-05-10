@@ -1,11 +1,18 @@
 extends Node
 
 # --- Signals --- #
+## Emits when a pearl is collected
 signal pearl_collected()
+
+## Emits when the current gold count is updated
+signal gold_updated()
 
 # --- Variables --- #
 ## The current number of each pearl type the player has collected
 var pearl_counts: Dictionary[Pearl.PearlVariant, int] = {}
+
+## The current amount of gold that the player has
+var curr_gold: int
 
 # --- Functions --- #
 func _ready() -> void:
@@ -24,3 +31,25 @@ func collect_pearl(variant: Pearl.PearlVariant) -> void:
 	pearl_counts[variant] += 1
 	
 	pearl_collected.emit()
+
+## Adds gold to the current count
+func add_gold(amount: int) -> void:
+	curr_gold += amount
+	
+	gold_updated.emit()
+
+## Calculate and return the amount of gold earned from selling pearls. This also
+## calls [method clear_counts], resetting the pearl counters
+func sell_pearls() -> int:
+	var total := 0
+	
+	# sell each category
+	total +=  1 * pearl_counts[Pearl.PearlVariant.WHITE]
+	total += 10 * pearl_counts[Pearl.PearlVariant.PINK]
+	total += 25 * pearl_counts[Pearl.PearlVariant.BLACK]
+	
+	# update counts
+	add_gold(total)
+	clear_counts()
+	
+	return total
