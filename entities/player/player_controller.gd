@@ -1,10 +1,6 @@
 class_name PlayerController
 extends CharacterBody2D
 
-# --- Signals --- #
-signal hp_modified()
-signal died()
-
 # --- Variables --- #
 const WALL_BUMP_POWER := 100.0
 
@@ -36,15 +32,15 @@ var force_timers: Dictionary[StringName, float] = {}
 ## [code]force_timers[key] / force_times[key][/code]
 var force_vectors: Dictionary[StringName, Vector2] = {}
 
-# - Health System - #
-@export var max_hp := 1
-var curr_hp := 1
-
-var is_dead := false
+# - Health - #
+@export var hp: HpComponent
 
 # --- Functions --- #
 func _ready() -> void:
 	Globals.player = self
+	
+	# setup signals
+	hp.hp_modified.connect(hit_flash)
 
 func _physics_process(delta: float) -> void:
 	# only move when in gameplay
@@ -52,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# don't move if destroyed
-	if is_dead:
+	if hp.is_dead:
 		return
 	
 	# check dash
@@ -143,7 +139,7 @@ func reset() -> void:
 	force_vectors = {}
 	
 	# hp
-	curr_hp = max_hp
+	hp.reset()
 	
 	# disable collision
 	$'shape'.set_deferred(&'disabled', true)
@@ -188,17 +184,6 @@ func get_total_velocity(delta: float) -> Vector2:
 #endregion
 
 #region Health System
-func take_damage(amount := 1) -> void:
-	curr_hp -= amount
-	
-	hit_flash()
-	
-	if curr_hp <= 0:
-		died.emit()
-		is_dead = false
-	
-	hp_modified.emit()
-
 func hit_flash() -> void:
 	$'sprite'.material.set_shader_parameter(&'intensity', 1.0)
 	

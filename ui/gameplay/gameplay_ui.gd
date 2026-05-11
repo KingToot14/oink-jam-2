@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 	# timer updates
 	%'game_timer'.timer_updated.connect(_on_timer_updated)
-	%'player'.hp_modified.connect(_on_hp_modified)
+	%'player'.hp.hp_modified.connect(_on_hp_modified)
 	
 	# currency updates
 	CurrencyManager.pearl_collected.connect(_on_pearl_collected)
@@ -20,8 +20,8 @@ func _ready() -> void:
 	%'game_timer'.timer_ended.connect(%'death_oxygen'.show_panel)
 	%'game_timer'.timer_ended.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
-	%'player'.died.connect(%'death_health'.show_panel)
-	%'player'.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
+	%'player'.hp.died.connect(%'death_health'.show_panel)
+	%'player'.hp.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
 	# reset UI
 	_on_pearl_collected()
@@ -32,7 +32,7 @@ func _on_timer_updated(sec: int) -> void:
 	%'sec_label'.text = "%s[color=#255994]s[/color]" % sec
 
 func _on_hp_modified() -> void:
-	%'hp_label'.text = "%s [color=#91272b]HP[/color]" % %'player'.curr_hp
+	%'hp_label'.text = "%s [color=#91272b]HP[/color]" % %'player'.hp.curr_hp
 
 func _on_pearl_collected() -> void:
 	%'white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]

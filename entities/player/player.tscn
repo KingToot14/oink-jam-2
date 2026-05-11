@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t766j2pqsoyr" path="res://entities/player/player_controller.gd" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://dfayk3i0ewnia" path="res://entities/player/main.png" id="2_abrql"]
+[ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_bls4j"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_sglur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
@@ -11,14 +12,19 @@ shader_parameter/intensity = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abrql"]
 
-[node name="player" type="CharacterBody2D" unique_id=1913186933 groups=["player"]]
+[node name="player" type="CharacterBody2D" unique_id=1913186933 node_paths=PackedStringArray("hp") groups=["player"]]
 z_index = 50
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_symyc")
 accel_mod = 1.5
 deccel_mod = 3.0
+hp = NodePath("hp")
 metadata/_custom_type_script = "uid://t766j2pqsoyr"
+
+[node name="hp" type="Node" parent="." unique_id=311998690]
+script = ExtResource("2_bls4j")
+metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=94609615]
 material = SubResource("ShaderMaterial_bls4j")
