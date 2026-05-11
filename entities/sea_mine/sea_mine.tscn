@@ -3,11 +3,153 @@
 [ext_resource type="Script" uid="uid://cqrucnmn7gqre" path="res://entities/sea_mine/sea_mine.gd" id="1_yyjup"]
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_eelpe"]
 [ext_resource type="Texture2D" uid="uid://btg6u3gk4ju1k" path="res://entities/sea_mine/main.png" id="2_stuy7"]
+[ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="3_2twhj"]
 [ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="3_a3tfj"]
+[ext_resource type="Shader" uid="uid://br8r03hctk3q1" path="res://entities/_shaders/ring.gdshader" id="3_jnd77"]
 [ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="4_5ryts"]
 
+[sub_resource type="Animation" id="Animation_jnd77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_source/shape:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2twhj"]
+resource_name = "explode"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_source/shape:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 24.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("splash_ring:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.1, -0.8489365, 0.0001522596, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("splash_ring:material:shader_parameter/radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.05, 24.985184, 31, -0.4, -0.5539856, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnd77"]
+_data = {
+&"RESET": SubResource("Animation_jnd77"),
+&"explode": SubResource("Animation_2twhj")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g3xr"]
+resource_local_to_scene = true
+shader = ExtResource("3_jnd77")
+shader_parameter/texture_size = 64.0
+shader_parameter/radius = 1.0
+shader_parameter/width = 2.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnd77"]
+resource_local_to_scene = true
+shader = ExtResource("3_2twhj")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_stuy7"]
+resource_local_to_scene = true
 radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eelpe"]
+radius = 1.0
 
 [node name="sea_mine" type="Node2D" unique_id=1146518598]
 script = ExtResource("1_yyjup")
@@ -16,7 +158,18 @@ script = ExtResource("1_yyjup")
 script = ExtResource("2_eelpe")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
+[node name="animator" type="AnimationPlayer" parent="." unique_id=330194279]
+libraries/ = SubResource("AnimationLibrary_jnd77")
+
+[node name="splash_ring" type="ColorRect" parent="." unique_id=1873548995]
+material = SubResource("ShaderMaterial_5g3xr")
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
 [node name="sprite" type="Sprite2D" parent="." unique_id=684031600]
+material = SubResource("ShaderMaterial_jnd77")
 texture = ExtResource("2_stuy7")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1467059094 node_paths=PackedStringArray("hp")]
@@ -39,5 +192,13 @@ metadata/_custom_type_script = "uid://sk4j56cl65nn"
 
 [node name="shape" type="CollisionShape2D" parent="damage_source" unique_id=1195543329]
 visible = false
-shape = SubResource("CircleShape2D_stuy7")
+shape = SubResource("CircleShape2D_eelpe")
 debug_color = Color(0.7, 0, 0, 0.41960785)
+
+[node name="explosion_range" type="Area2D" parent="." unique_id=571292595]
+collision_layer = 4
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="explosion_range" unique_id=1209155541]
+visible = false
+shape = SubResource("CircleShape2D_stuy7")
