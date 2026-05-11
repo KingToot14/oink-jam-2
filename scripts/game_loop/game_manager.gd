@@ -56,7 +56,7 @@ func load_level() -> void:
 	%'upgrades'.hide_panel()
 	
 	# reset level
-	$'player'.reset()
+	%'player'.reset()
 	
 	await get_tree().create_timer(0.20).timeout
 	
@@ -66,7 +66,7 @@ func load_level() -> void:
 	add_child(level)
 	
 	# start game
-	$'game_timer'.start_timer()
-	$'player'.start_game()
+	%'game_timer'.start_timer()
+	%'player'.start_game()
 	
 	set_game_state(GameState.GAMEPLAY)

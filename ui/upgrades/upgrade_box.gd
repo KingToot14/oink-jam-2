@@ -15,7 +15,7 @@ func _ready() -> void:
 	update_info()
 
 func update_info() -> void:
-	if not upgrade:
+	if not upgrade or Engine.is_editor_hint():
 		return
 	
 	$'title'.text = upgrade.name

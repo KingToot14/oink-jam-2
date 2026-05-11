@@ -49,6 +49,7 @@ script = ExtResource("1_sugp2")
 metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
+unique_name_in_owner = true
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=529712363]
 script = ExtResource("5_o6xl0")

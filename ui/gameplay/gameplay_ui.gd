@@ -19,6 +19,9 @@ func _ready() -> void:
 	%'game_timer'.timer_ended.connect(%'death_oxygen'.show_panel)
 	%'game_timer'.timer_ended.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
+	%'player'.died.connect(%'death_health'.show_panel)
+	%'player'.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
+	
 	# reset UI
 	_on_pearl_collected()
 	update_gold_display()

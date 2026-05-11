@@ -14,7 +14,7 @@ var curr_sec := 0.0
 
 # --- Functions --- #
 func _process(delta: float) -> void:
-	if not running:
+	if not running or Globals.main.game_state != GameManager.GameState.GAMEPLAY:
 		return
 	
 	run_timer -= delta
