@@ -1,6 +1,10 @@
 class_name PlayerController
 extends CharacterBody2D
 
+# --- Signals --- #
+signal hp_modified()
+signal died()
+
 # --- Variables --- #
 const WALL_BUMP_POWER := 100.0
 
@@ -32,6 +36,12 @@ var force_timers: Dictionary[StringName, float] = {}
 ## [code]force_timers[key] / force_times[key][/code]
 var force_vectors: Dictionary[StringName, Vector2] = {}
 
+# - Health System - #
+@export var max_hp := 1
+var curr_hp := 1
+
+var is_dead := false
+
 # --- Functions --- #
 func _ready() -> void:
 	Globals.player = self
@@ -39,6 +49,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# only move when in gameplay
 	if Globals.main.game_state != GameManager.GameState.GAMEPLAY:
+		return
+	
+	# don't move if destroyed
+	if is_dead:
 		return
 	
 	# check dash
@@ -111,6 +125,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'fire_cannon'):
 		fire_cannon(get_global_mouse_position())
+		take_damage()
 
 ## Resets all components of the player's position and physics. This includes
 ## rotation, current speed, and impuse forces
@@ -127,6 +142,9 @@ func reset() -> void:
 	force_timers = {}
 	force_times = {}
 	force_vectors = {}
+	
+	# hp
+	curr_hp = max_hp
 	
 	# disable collision
 	$'shape'.set_deferred(&'disabled', true)
@@ -167,5 +185,25 @@ func get_total_velocity(delta: float) -> Vector2:
 			force_vectors.erase(key)
 	
 	return total_velocity
+
+#endregion
+
+#region Health System
+func take_damage(amount := 1) -> void:
+	curr_hp -= amount
+	
+	hit_flash()
+	
+	if curr_hp <= 0:
+		died.emit()
+		is_dead = false
+	
+	hp_modified.emit()
+
+func hit_flash() -> void:
+	$'sprite'.material.set_shader_parameter(&'intensity', 1.0)
+	
+	var tween := create_tween()
+	tween.tween_method(func (x): $'sprite'.material.set_shader_parameter(&'intensity', x), 1.0, 0.0, 0.20)
 
 #endregion

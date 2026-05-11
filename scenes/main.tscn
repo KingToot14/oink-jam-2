@@ -317,9 +317,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -40.0
-offset_top = 4.0
-offset_right = 40.0
+offset_left = -78.0
+offset_top = 2.0
+offset_right = 78.0
 offset_bottom = 18.0
 grow_horizontal = 2
 mouse_filter = 2
@@ -747,13 +747,13 @@ vertical_alignment = 1
 
 [node name="underline" type="ColorRect" parent="ui/death_oxygen/retry_button" unique_id=1345343661]
 modulate = Color(1, 1, 1, 0)
-self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 0
 offset_left = 3.0
 offset_top = 11.0
 offset_right = 26.0
 offset_bottom = 12.0
 mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
 
 [node name="upgrade_button" type="BaseButton" parent="ui/death_oxygen" unique_id=610940124 node_paths=PackedStringArray("fill", "underline")]
 unique_name_in_owner = false
@@ -883,7 +883,6 @@ offset_bottom = 12.0
 mouse_filter = 2
 
 [node name="underline" type="ColorRect" parent="ui/death_oxygen/upgrade_button/underline" unique_id=296270886]
-self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -892,9 +891,9 @@ offset_right = -42.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
 
 [node name="underline_2" type="ColorRect" parent="ui/death_oxygen/upgrade_button/underline" unique_id=1960703056]
-self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -904,9 +903,9 @@ offset_right = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
 
 [node name="underline_3" type="ColorRect" parent="ui/death_oxygen/upgrade_button/underline" unique_id=623579057]
-self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -915,9 +914,646 @@ offset_left = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
+
+[node name="death_health" type="Control" parent="ui" unique_id=1323420518]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_eb6dy")
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health" unique_id=1106328433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_choun")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Control" parent="ui/death_health" unique_id=1717083974]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 2.0
+offset_right = 78.0
+offset_bottom = 18.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/title" unique_id=1740334590]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/death_health/title" unique_id=83036502]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Sub Destroyed!"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="white_holder" type="Control" parent="ui/death_health" unique_id=654194343]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 64.0
+offset_bottom = -45.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/white_holder" unique_id=1257758008]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon_fill" type="NinePatchRect" parent="ui/death_health/white_holder" unique_id=164750884]
+self_modulate = Color(0.105882354, 0.11372549, 0.14117648, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon" type="TextureRect" parent="ui/death_health/white_holder" unique_id=266978534]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_choun")
+
+[node name="white_label" type="RichTextLabel" parent="ui/death_health/white_holder" unique_id=1696960937]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 31.0
+offset_bottom = 12.0
+mouse_filter = 2
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pink_holder" type="Control" parent="ui/death_health" unique_id=1209159997]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 23.0
+offset_right = 95.0
+offset_bottom = -45.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/pink_holder" unique_id=1591144274]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon_fill" type="NinePatchRect" parent="ui/death_health/pink_holder" unique_id=1260766452]
+self_modulate = Color(0.105882354, 0.11372549, 0.14117648, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon" type="TextureRect" parent="ui/death_health/pink_holder" unique_id=250222210]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_85g3d")
+
+[node name="pink_label" type="RichTextLabel" parent="ui/death_health/pink_holder" unique_id=529440511]
+self_modulate = Color(0.8745098, 0.7411765, 0.9019608, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 31.0
+offset_bottom = 12.0
+mouse_filter = 2
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="black_holder" type="Control" parent="ui/death_health" unique_id=1365904900]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 23.0
+offset_right = 126.0
+offset_bottom = -45.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/black_holder" unique_id=1791256373]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon_fill" type="NinePatchRect" parent="ui/death_health/black_holder" unique_id=1354412186]
+self_modulate = Color(0.105882354, 0.11372549, 0.14117648, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon" type="TextureRect" parent="ui/death_health/black_holder" unique_id=305018262]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ya4ey")
+
+[node name="black_label" type="RichTextLabel" parent="ui/death_health/black_holder" unique_id=541440718]
+self_modulate = Color(0.47843137, 0.4745098, 0.47843137, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 31.0
+offset_bottom = 12.0
+mouse_filter = 2
+text = "20"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gold_holder" type="Control" parent="ui/death_health" unique_id=1113269670]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 40.0
+offset_right = 114.0
+offset_bottom = -28.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/gold_holder" unique_id=144383032]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon_fill" type="NinePatchRect" parent="ui/death_health/gold_holder" unique_id=506113210]
+self_modulate = Color(0.105882354, 0.11372549, 0.14117648, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="icon" type="TextureRect" parent="ui/death_health/gold_holder" unique_id=1518869566]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_eb6dy")
+
+[node name="gold_label" type="RichTextLabel" parent="ui/death_health/gold_holder" unique_id=1171062167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.85882354, 0.7294118, 0.078431375, 1)
+bbcode_enabled = true
+text = "[color=#c7a20e]+[/color]20,000"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry_button" type="BaseButton" parent="ui/death_health" unique_id=32063993 node_paths=PackedStringArray("fill", "underline")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 23.0
+offset_top = 60.0
+offset_right = 58.0
+offset_bottom = 74.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+underline = NodePath("underline")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/retry_button" unique_id=1057201434]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="text" type="RichTextLabel" parent="ui/death_health/retry_button" unique_id=797561621]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Retry"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="underline" type="ColorRect" parent="ui/death_health/retry_button" unique_id=1015762544]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 11.0
+offset_right = 26.0
+offset_bottom = 12.0
+mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
+
+[node name="upgrade_button" type="BaseButton" parent="ui/death_health" unique_id=1321715792 node_paths=PackedStringArray("fill", "underline")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 93.0
+offset_top = 60.0
+offset_right = 146.0
+offset_bottom = 74.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+underline = NodePath("underline")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="ui/death_health/upgrade_button" unique_id=149780826]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="text" type="RichTextLabel" parent="ui/death_health/upgrade_button" unique_id=1037055472]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Upgrades"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="underline" type="Control" parent="ui/death_health/upgrade_button" unique_id=1686561116]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 51.0
+offset_bottom = 12.0
+mouse_filter = 2
+
+[node name="underline" type="ColorRect" parent="ui/death_health/upgrade_button/underline" unique_id=1822138063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
+
+[node name="underline_2" type="ColorRect" parent="ui/death_health/upgrade_button/underline" unique_id=644316010]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
+
+[node name="underline_3" type="ColorRect" parent="ui/death_health/upgrade_button/underline" unique_id=331804852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.62352943, 0.7019608, 0.8, 1)
 
 [node name="upgrades" type="Control" parent="ui" unique_id=547679819]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1241,4 +1877,6 @@ mouse_filter = 2
 
 [connection signal="pressed" from="ui/death_oxygen/retry_button" to="." method="reload_game"]
 [connection signal="pressed" from="ui/death_oxygen/upgrade_button" to="." method="open_upgrades"]
+[connection signal="pressed" from="ui/death_health/retry_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/death_health/upgrade_button" to="." method="open_upgrades"]
 [connection signal="pressed" from="ui/upgrades/retry_button" to="." method="load_level"]

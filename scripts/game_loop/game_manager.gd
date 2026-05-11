@@ -58,6 +58,8 @@ func load_level() -> void:
 	# reset level
 	$'player'.reset()
 	
+	await get_tree().create_timer(0.20).timeout
+	
 	level = MAIN_GAME_SCENE.instantiate()
 	level.name = "level"
 	

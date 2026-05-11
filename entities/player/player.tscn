@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://t766j2pqsoyr" path="res://entities/player/player_controller.gd" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://dfayk3i0ewnia" path="res://entities/player/main.png" id="2_abrql"]
+[ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_sglur"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
+shader = ExtResource("2_sglur")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abrql"]
 
@@ -15,6 +21,7 @@ deccel_mod = 3.0
 metadata/_custom_type_script = "uid://t766j2pqsoyr"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=94609615]
+material = SubResource("ShaderMaterial_bls4j")
 texture = ExtResource("2_abrql")
 
 [node name="shape" type="CollisionShape2D" parent="." unique_id=1828483181]
