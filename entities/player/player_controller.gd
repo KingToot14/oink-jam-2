@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 # --- Signals --- #
 signal dash_used()
+signal cannon_fired()
 
 # --- Variables --- #
 const WALL_BUMP_POWER := 100.0
@@ -46,6 +47,10 @@ var is_dashing := false
 
 @export var max_dash_time := 5.0
 var dash_time := 5.0
+
+# - Ammo - #
+@export var max_ammo := 1
+var curr_ammo := 1
 
 # --- Functions --- #
 func _ready() -> void:
@@ -175,6 +180,7 @@ func reset() -> void:
 	dash_time = max_dash_time
 	
 	# cannon
+	curr_ammo = max_ammo
 	$'cannon'.rotation = 0.0
 	
 	# disable collision
@@ -193,6 +199,10 @@ func fire_cannon(mouse_pos: Vector2) -> void:
 	if Globals.main.game_state != GameManager.GameState.GAMEPLAY:
 		return
 	
+	# don't fire if no ammo remains
+	if curr_ammo <= 0:
+		return
+	
 	var direction := (mouse_pos - global_position).normalized()
 	var angle := atan2(direction.y, direction.x)
 	
@@ -206,6 +216,11 @@ func fire_cannon(mouse_pos: Vector2) -> void:
 	ball.setup(direction)
 	
 	get_tree().current_scene.add_child(ball)
+	
+	curr_ammo -= 1
+	
+	# emit signal
+	cannon_fired.emit()
 
 #region Impulse Forces
 ## Adds an impuse force to the player submarine. Using the same [param key] will

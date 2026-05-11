@@ -23,7 +23,9 @@ func _ready() -> void:
 	%'player'.hp.died.connect(%'death_health'.show_panel)
 	%'player'.hp.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
+	# actions
 	%'player'.dash_used.connect(_on_dash_used)
+	%'player'.cannon_fired.connect(_on_cannon_fired)
 	
 	# reset UI
 	_on_pearl_collected()
@@ -47,6 +49,9 @@ func _on_gold_updated() -> void:
 func _on_dash_used() -> void:
 	$'oxygen_bar/bar_display/mask'.size.x = DASH_BAR_WIDTH * %'player'.get_dash_percent()
 
+func _on_cannon_fired() -> void:
+	%'ammo_label'.text = "%s" % %'player'.curr_ammo
+
 ## Updated the gold display when currency is added/the game is loaded
 func update_gold_display() -> void:
 	%'gold_label'.text = "%s" % CurrencyManager.curr_gold
@@ -57,4 +62,5 @@ func reset() -> void:
 	_on_pearl_collected()
 	_on_gold_updated()
 	_on_dash_used()
+	_on_cannon_fired()
 	update_gold_display()
