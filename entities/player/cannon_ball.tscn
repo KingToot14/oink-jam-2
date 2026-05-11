@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bvj2fme6c00xe"]
+
+[ext_resource type="Script" uid="uid://c6g6k65m3cr0p" path="res://entities/player/cannon_ball.gd" id="1_8uyms"]
+[ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_4yu7j"]
+[ext_resource type="Texture2D" uid="uid://cgkuxr5q4onsx" path="res://entities/player/cannon_ball.png" id="2_66adg"]
+[ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="3_0vogn"]
+
+[sub_resource type="Animation" id="Animation_0vogn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_66adg"]
+resource_name = "break"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vogn"]
+_data = {
+&"RESET": SubResource("Animation_0vogn"),
+&"break": SubResource("Animation_66adg")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwwrr"]
+shader = ExtResource("2_4yu7j")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66adg"]
+radius = 6.0
+
+[node name="cannon_ball" type="CharacterBody2D" unique_id=1619216776]
+z_index = 50
+collision_layer = 2
+script = ExtResource("1_8uyms")
+metadata/_custom_type_script = "uid://c6g6k65m3cr0p"
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=585516578]
+libraries/ = SubResource("AnimationLibrary_0vogn")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=493568127]
+material = SubResource("ShaderMaterial_gwwrr")
+texture = ExtResource("2_66adg")
+hframes = 3
+
+[node name="shape" type="CollisionShape2D" parent="." unique_id=573181377]
+visible = false
+shape = SubResource("CircleShape2D_66adg")
+
+[node name="damage_source" type="Area2D" parent="." unique_id=228490472]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_0vogn")
+metadata/_custom_type_script = "uid://sk4j56cl65nn"
+
+[node name="shape" type="CollisionShape2D" parent="damage_source" unique_id=641198822]
+visible = false
+shape = SubResource("CircleShape2D_66adg")
+debug_color = Color(0.7, 0, 0, 0.41960785)

@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	# connect signals
 	$'explosion_range'.area_entered.connect(_on_area_entered)
+	$'hp'.died.connect(explode)
 
 func _process(_delta: float) -> void:
 	global_position.x = origin.x + sin(((Time.get_ticks_msec() / 1000.0) + origin.x + origin.y) * BOB_TIME)

@@ -6,6 +6,7 @@ signal dash_used()
 
 # --- Variables --- #
 const WALL_BUMP_POWER := 100.0
+const CANNON_BALL_SCENE := preload("res://entities/player/cannon_ball.tscn")
 
 ## How much [member curr_speed] should be increased relative to the [member move_speed].
 ## This is applied when a movement input is being pressed.
@@ -173,6 +174,9 @@ func reset() -> void:
 	# dashing
 	dash_time = max_dash_time
 	
+	# cannon
+	$'cannon'.rotation = 0.0
+	
 	# disable collision
 	$'shape'.set_deferred(&'disabled', true)
 
@@ -181,7 +185,27 @@ func start_game() -> void:
 
 ## Fires a single torpedo towards the [member mouse_pos]
 func fire_cannon(mouse_pos: Vector2) -> void:
-	pass
+	# don't fire if animating
+	if $'cannon/animator'.is_playing():
+		return
+	
+	# don't fire if not in gameplay
+	if Globals.main.game_state != GameManager.GameState.GAMEPLAY:
+		return
+	
+	var direction := (mouse_pos - global_position).normalized()
+	var angle := atan2(direction.y, direction.x)
+	
+	# play fire animation
+	$'cannon'.global_rotation = angle - PI / 2.0
+	$'cannon/animator'.play(&'fire')
+	
+	# create cannon ball
+	var ball: CannonBall = CANNON_BALL_SCENE.instantiate()
+	ball.global_position = $'cannon/fire_point'.global_position
+	ball.setup(direction)
+	
+	get_tree().current_scene.add_child(ball)
 
 #region Impulse Forces
 ## Adds an impuse force to the player submarine. Using the same [param key] will

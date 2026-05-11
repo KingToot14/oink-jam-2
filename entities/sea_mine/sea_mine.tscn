@@ -149,6 +149,7 @@ resource_local_to_scene = true
 radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eelpe"]
+resource_local_to_scene = true
 radius = 1.0
 
 [node name="sea_mine" type="Node2D" unique_id=1146518598]
