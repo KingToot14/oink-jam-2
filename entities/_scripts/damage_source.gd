@@ -1,6 +1,9 @@
 class_name DamageSource
 extends Area2D
 
+# --- Signals --- #
+signal damage_applied(hitbox: Hitbox)
+
 # --- Variables --- #
 ## How much damage to deal to intersecting [HpComponent]s
 @export var damage := 1
@@ -15,3 +18,5 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	# deal damage
 	area.take_damage(damage)
+	
+	damage_applied.emit(area)

@@ -18,6 +18,9 @@ func _ready() -> void:
 
 ## Shows the panel by animating it using tweening
 func show_panel() -> void:
+	# tween transition
+	%'game_transitions'.tween_intensity(0.50, 0.50)
+	
 	# update counters
 	$'white_holder/white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]
 	$'pink_holder/pink_label'.text   = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.PINK]

@@ -32,11 +32,6 @@ func set_game_state(state: GameState) -> void:
 
 ## Reloads the currently loaded game
 func reload_game() -> void:
-	# hide death panels
-	%'death_oxygen'.hide_panel()
-	
-	# TODO: Add a transition
-	
 	load_level()
 
 ## Reloads the currently loaded game
@@ -48,25 +43,32 @@ func open_upgrades() -> void:
 
 ## Loads/Reloads the main level scene and sets up the player
 func load_level() -> void:
-	if level:
-		level.queue_free()
+	# play transition
+	%'game_transitions'.tween_intensity(1.0, 0.50)
 	
 	# hide menus
 	%'death_oxygen'.hide_panel()
 	%'death_health'.hide_panel()
 	%'upgrades'.hide_panel()
 	
+	await get_tree().create_timer(1.00).timeout
+	
 	# reset level
 	%'player'.reset()
-	
 	%'ui'.reset()
 	
-	await get_tree().create_timer(0.20).timeout
+	if level:
+		level.queue_free()
 	
 	level = MAIN_GAME_SCENE.instantiate()
 	level.name = "level"
 	
 	add_child(level)
+	
+	# tween transition
+	%'game_transitions'.tween_intensity(0.0, 0.50)
+	
+	await get_tree().create_timer(0.50).timeout
 	
 	# start game
 	%'game_timer'.start_timer()
