@@ -45,12 +45,19 @@ var is_dashing := false
 ## How much the base speed is multiplied by when dashing
 @export var dash_increase := 1.5
 
+## The max amount of time that the player can dash for
 @export var max_dash_time := 5.0
+## The remaining time that hte player can dash for
 var dash_time := 5.0
 
 # - Ammo - #
+## The max number of times that the player can fire cannon balls
 @export var max_ammo := 1
+## The remaining number of times that the player can fire cannon balls
 var curr_ammo := 1
+
+## How much damage the cannon balls should do
+var cannon_damage := 1
 
 # --- Functions --- #
 func _ready() -> void:
@@ -160,6 +167,18 @@ func _input(event: InputEvent) -> void:
 ## Resets all components of the player's position and physics. This includes
 ## rotation, current speed, and impuse forces
 func reset() -> void:
+	# fetch upgrades
+	hp.set_max_hp(floori(Upgrades.get_upgrade_value(&'hull_strength')))
+	
+	move_speed = Upgrades.get_upgrade_value(&'propeller_blades')
+	turn_speed = Upgrades.get_upgrade_value(&'propeller_body')
+	
+	dash_increase = Upgrades.get_upgrade_value(&'jet_thrust')
+	max_dash_time = Upgrades.get_upgrade_value(&'jet_capacity')
+	
+	max_ammo = floori(Upgrades.get_upgrade_value(&'cannon_capacity'))
+	cannon_damage = floori(Upgrades.get_upgrade_value(&'cannon_power'))
+	
 	# position
 	position = Vector2.ZERO
 	rotation = 0
@@ -213,7 +232,7 @@ func fire_cannon(mouse_pos: Vector2) -> void:
 	# create cannon ball
 	var ball: CannonBall = CANNON_BALL_SCENE.instantiate()
 	ball.global_position = $'cannon/fire_point'.global_position
-	ball.setup(direction)
+	ball.setup(direction, cannon_damage)
 	
 	get_tree().current_scene.add_child(ball)
 	

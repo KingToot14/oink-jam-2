@@ -27,5 +27,6 @@ func do_hit() -> void:
 	$'animator'.play(&'break')
 
 ## Sets the velocity for the cannon ball
-func setup(dir: Vector2) -> void:
+func setup(dir: Vector2, damage: int) -> void:
 	velocity = dir * move_speed
+	$'damage_source'.damage = damage

@@ -52,6 +52,11 @@ metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
 unique_name_in_owner = true
+move_speed = 50.0
+turn_speed = 50.0
+dash_increase = 1.5
+max_dash_time = 5.0
+max_ammo = 1
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=529712363]
 unique_name_in_owner = true

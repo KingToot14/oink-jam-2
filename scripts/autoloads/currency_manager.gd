@@ -57,6 +57,9 @@ func sell_pearls() -> int:
 	total += 10 * pearl_counts[Pearl.PearlVariant.PINK]
 	total += 25 * pearl_counts[Pearl.PearlVariant.BLACK]
 	
+	# apply upgrades
+	total = floori(total * Upgrades.get_upgrade_value(&'pearl_polishing'))
+	
 	# update counts
 	add_gold(total)
 	clear_counts()

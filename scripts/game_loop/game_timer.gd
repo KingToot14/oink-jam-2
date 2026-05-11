@@ -33,6 +33,10 @@ func _process(delta: float) -> void:
 
 ## Starts the game timer
 func start_timer() -> void:
+	# fetch upgrades
+	run_time = Upgrades.get_upgrade_value(&'hull_capacity')
+	
+	# start timer
 	run_timer = run_time
 	curr_sec = ceili(run_time)
 	running = true
