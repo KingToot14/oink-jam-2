@@ -45,6 +45,9 @@ func _ready() -> void:
 	origin = position
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	global_position.y = origin.y + sin(((Time.get_ticks_msec() / 1000.0) + origin.x + origin.y) * BOB_TIME)
 
 func _on_body_entered(body: Node2D) -> void:

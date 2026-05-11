@@ -45,3 +45,10 @@ func _on_gold_updated() -> void:
 ## Updated the gold display when currency is added/the game is loaded
 func update_gold_display() -> void:
 	%'gold_label'.text = "%s" % CurrencyManager.curr_gold
+
+## Resets all ui counters
+func reset() -> void:
+	_on_hp_modified()
+	_on_pearl_collected()
+	_on_gold_updated()
+	update_gold_display()

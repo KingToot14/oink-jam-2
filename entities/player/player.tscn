@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfayk3i0ewnia" path="res://entities/player/main.png" id="2_abrql"]
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_bls4j"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_sglur"]
+[ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="5_fkugw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
 shader = ExtResource("2_sglur")
@@ -31,7 +32,21 @@ material = SubResource("ShaderMaterial_bls4j")
 texture = ExtResource("2_abrql")
 
 [node name="shape" type="CollisionShape2D" parent="." unique_id=1828483181]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_abrql")
 
 [node name="cam" type="Camera2D" parent="." unique_id=502475836]
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1997217428 node_paths=PackedStringArray("hp")]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("5_fkugw")
+hp = NodePath("../hp")
+metadata/_custom_type_script = "uid://iwsmaoecjpf8"
+
+[node name="shape" type="CollisionShape2D" parent="hitbox" unique_id=910382441]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_abrql")
+debug_color = Color(0.7, 0, 0, 0.41960785)

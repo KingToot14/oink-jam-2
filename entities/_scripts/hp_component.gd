@@ -12,13 +12,17 @@ var curr_hp := 1
 var is_dead := false
 
 # --- Functions --- #
+## Resets the health component to the max hp
 func reset() -> void:
 	curr_hp = max_hp
 
+## Updates the max hp this component is allowed to have. Also heals to full
 func set_max_hp(value: int) -> void:
 	max_hp = value
 	curr_hp = value
 
+## Decreases damage by [param amount]. Calls [signal hp_modified] and [signal died] if
+## [param curr_hp] is reduced to 0
 func take_damage(amount := 1) -> void:
 	curr_hp -= amount
 	

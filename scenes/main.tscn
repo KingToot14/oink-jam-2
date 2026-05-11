@@ -52,6 +52,7 @@ metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 unique_name_in_owner = true
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=529712363]
+unique_name_in_owner = true
 script = ExtResource("5_o6xl0")
 
 [node name="oxygen_bar" type="TextureRect" parent="ui" unique_id=1142015908]

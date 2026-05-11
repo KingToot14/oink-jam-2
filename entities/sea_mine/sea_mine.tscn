@@ -1,17 +1,43 @@
 [gd_scene format=3 uid="uid://b0arvdya2di62"]
 
 [ext_resource type="Script" uid="uid://cqrucnmn7gqre" path="res://entities/sea_mine/sea_mine.gd" id="1_yyjup"]
+[ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_eelpe"]
 [ext_resource type="Texture2D" uid="uid://btg6u3gk4ju1k" path="res://entities/sea_mine/main.png" id="2_stuy7"]
+[ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="3_a3tfj"]
+[ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="4_5ryts"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stuy7"]
 radius = 13.0
 
-[node name="sea_mine" type="Area2D" unique_id=1349013783]
+[node name="sea_mine" type="Node2D" unique_id=1146518598]
 script = ExtResource("1_yyjup")
-metadata/_custom_type_script = "uid://cqrucnmn7gqre"
+
+[node name="hp" type="Node" parent="." unique_id=961122728]
+script = ExtResource("2_eelpe")
+metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=684031600]
 texture = ExtResource("2_stuy7")
 
-[node name="shape" type="CollisionShape2D" parent="." unique_id=302722690]
+[node name="hitbox" type="Area2D" parent="." unique_id=1467059094 node_paths=PackedStringArray("hp")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_a3tfj")
+hp = NodePath("../hp")
+metadata/_custom_type_script = "uid://iwsmaoecjpf8"
+
+[node name="shape" type="CollisionShape2D" parent="hitbox" unique_id=302722690]
+visible = false
 shape = SubResource("CircleShape2D_stuy7")
+debug_color = Color(0.7, 0, 0, 0.41960785)
+
+[node name="damage_source" type="Area2D" parent="." unique_id=2087095913]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_5ryts")
+metadata/_custom_type_script = "uid://sk4j56cl65nn"
+
+[node name="shape" type="CollisionShape2D" parent="damage_source" unique_id=1195543329]
+visible = false
+shape = SubResource("CircleShape2D_stuy7")
+debug_color = Color(0.7, 0, 0, 0.41960785)

@@ -53,10 +53,13 @@ func load_level() -> void:
 	
 	# hide menus
 	%'death_oxygen'.hide_panel()
+	%'death_health'.hide_panel()
 	%'upgrades'.hide_panel()
 	
 	# reset level
 	%'player'.reset()
+	
+	%'ui'.reset()
 	
 	await get_tree().create_timer(0.20).timeout
 	
