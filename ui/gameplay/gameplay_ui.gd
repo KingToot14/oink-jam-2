@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	# timer updates
 	%'game_timer'.timer_updated.connect(_on_timer_updated)
+	%'player'.hp_modified.connect(_on_hp_modified)
 	
 	# currency updates
 	CurrencyManager.pearl_collected.connect(_on_pearl_collected)
@@ -24,10 +25,14 @@ func _ready() -> void:
 	
 	# reset UI
 	_on_pearl_collected()
+	_on_hp_modified()
 	update_gold_display()
 
 func _on_timer_updated(sec: int) -> void:
 	%'sec_label'.text = "%s[color=#255994]s[/color]" % sec
+
+func _on_hp_modified() -> void:
+	%'hp_label'.text = "%s [color=#91272b]HP[/color]" % %'player'.curr_hp
 
 func _on_pearl_collected() -> void:
 	%'white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]

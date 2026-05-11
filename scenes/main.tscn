@@ -110,6 +110,33 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="health_display" type="Control" parent="ui/oxygen_bar" unique_id=1014825045]
+anchors_preset = 0
+offset_left = 44.0
+offset_top = 3.0
+offset_right = 74.0
+offset_bottom = 13.0
+mouse_filter = 2
+
+[node name="hp_label" type="RichTextLabel" parent="ui/oxygen_bar/health_display" unique_id=1031387455]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.6392157, 0.18431373, 0.18431373, 1)
+bbcode_enabled = true
+text = "2 [color=#91272b]HP[/color]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="currency_bar" type="TextureRect" parent="ui" unique_id=1007306195]
 anchors_preset = 3
 anchor_left = 1.0

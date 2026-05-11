@@ -125,7 +125,6 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'fire_cannon'):
 		fire_cannon(get_global_mouse_position())
-		take_damage()
 
 ## Resets all components of the player's position and physics. This includes
 ## rotation, current speed, and impuse forces
