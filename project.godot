@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 Globals="*uid://b5lw4lxxrvbs0"
 CurrencyManager="*uid://rpp4xa48xrfs"
+Upgrades="*uid://ceqx1dxs4yw36"
 
 [display]
 

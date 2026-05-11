@@ -5,4 +5,8 @@
 [resource]
 script = ExtResource("1_j8wkl")
 name = "Hull Strength"
+max_level = 9
+is_value_linear = true
+value_exponent = 1.0
+base_cost = 50
 metadata/_custom_type_script = "uid://b1ph6t32gauix"

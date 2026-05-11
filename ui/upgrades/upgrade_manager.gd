@@ -8,9 +8,6 @@ const TWEEN_TIME := 0.15
 ## The original y position of this panel
 var origin: float
 
-## Maps upgrade resources to a key. Used in the [method get_upgrade_value] method
-@export var upgrades: Dictionary[StringName, Upgrade] = {}
-
 # --- Functions --- #
 func _ready() -> void:
 	# set up signals
@@ -24,14 +21,6 @@ func _ready() -> void:
 
 func _on_gold_updated() -> void:
 	$'gold_holder/gold_label'.text = "%s" % CurrencyManager.curr_gold
-
-## Gets the current value of the upgrade identified by [param upgrade_key]. This
-## uses [method Upgrade.get_value] to get the correct value
-func get_upgrade_value(upgrade_key: StringName) -> float:
-	if upgrade_key not in upgrades.keys():
-		return 0.0
-	
-	return upgrades[upgrade_key].get_value()
 
 #region Visuals
 ## Shows the panel by animating it using tweening
