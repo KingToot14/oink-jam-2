@@ -2,7 +2,7 @@ class_name GameplayUi
 extends CanvasLayer
 
 # --- Variables --- #
-
+const DASH_BAR_WIDTH := 92.0
 
 # --- Functions --- #
 func _ready() -> void:
@@ -23,6 +23,8 @@ func _ready() -> void:
 	%'player'.hp.died.connect(%'death_health'.show_panel)
 	%'player'.hp.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
+	%'player'.dash_used.connect(_on_dash_used)
+	
 	# reset UI
 	_on_pearl_collected()
 	_on_hp_modified()
@@ -42,6 +44,9 @@ func _on_pearl_collected() -> void:
 func _on_gold_updated() -> void:
 	%'gold_label'.text = "%s" % CurrencyManager.curr_gold
 
+func _on_dash_used() -> void:
+	$'oxygen_bar/bar_display/mask'.size.x = DASH_BAR_WIDTH * %'player'.get_dash_percent()
+
 ## Updated the gold display when currency is added/the game is loaded
 func update_gold_display() -> void:
 	%'gold_label'.text = "%s" % CurrencyManager.curr_gold
@@ -51,4 +56,5 @@ func reset() -> void:
 	_on_hp_modified()
 	_on_pearl_collected()
 	_on_gold_updated()
+	_on_dash_used()
 	update_gold_display()

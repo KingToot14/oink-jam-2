@@ -1,6 +1,9 @@
 class_name PlayerController
 extends CharacterBody2D
 
+# --- Signals --- #
+signal dash_used()
+
 # --- Variables --- #
 const WALL_BUMP_POWER := 100.0
 
@@ -81,13 +84,18 @@ func _physics_process(delta: float) -> void:
 			curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, 0.0)
 	else:
 		# accelerate
-		if is_dashing:
+		if is_dashing and dash_time > 0.0:
 			curr_speed += move_speed * accel_mod * delta * move_dir * dash_increase
 			
 			if curr_speed > move_speed * dash_increase:
 				curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, move_speed * dash_increase)
 			if curr_speed < -move_speed * dash_increase:
 				curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, -move_speed * dash_increase)
+			
+			# reduce dash timer
+			dash_time = maxf(dash_time - delta, 0.0)
+			
+			dash_used.emit()
 		else:
 			curr_speed += move_speed * accel_mod * delta * move_dir
 			
@@ -208,10 +216,18 @@ func get_total_velocity(delta: float) -> Vector2:
 #endregion
 
 #region Health System
+## Plays a simple flash animation using the sprite's [ShaderMaterial]
 func hit_flash() -> void:
 	$'sprite'.material.set_shader_parameter(&'intensity', 1.0)
 	
 	var tween := create_tween()
 	tween.tween_method(func (x): $'sprite'.material.set_shader_parameter(&'intensity', x), 1.0, 0.0, 0.20)
+
+#endregion
+
+#region Dashing
+## Returns how much of the dash is currently used
+func get_dash_percent() -> float:
+	return dash_time / max_dash_time
 
 #endregion
