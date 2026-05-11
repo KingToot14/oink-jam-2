@@ -74,12 +74,23 @@ offset_right = 98.0
 offset_bottom = 28.0
 mouse_filter = 2
 
-[node name="fill" type="NinePatchRect" parent="ui/oxygen_bar/bar_display" unique_id=1694579941]
+[node name="mask" type="ColorRect" parent="ui/oxygen_bar/bar_display" unique_id=1921672113]
+clip_children = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/oxygen_bar/bar_display/mask" unique_id=1694579941]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -6.0
+offset_right = 92.0
+offset_bottom = 6.0
 grow_vertical = 2
 texture = ExtResource("6_tefeu")
 patch_margin_left = 6

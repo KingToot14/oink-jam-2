@@ -18,9 +18,6 @@ const WALL_BUMP_POWER := 100.0
 ## The current speed calculated from the [member accel_mod] and [member deccel_mod]
 var curr_speed := 0.0
 
-## Whether or not the sub is currently dashing.
-var is_dashing := false
-
 # - External Forces - #
 ## The total times that each force should last for. This is unmodified until the force
 ## is done being processed.
@@ -33,7 +30,18 @@ var force_timers: Dictionary[StringName, float] = {}
 var force_vectors: Dictionary[StringName, Vector2] = {}
 
 # - Health - #
+## The [HpComponent] that the player uses to manage health
 @export var hp: HpComponent
+
+# - Dashing - #
+## Whether or not the sub is currently dashing.
+var is_dashing := false
+
+## How much the base speed is multiplied by when dashing
+@export var dash_increase := 1.5
+
+@export var max_dash_time := 5.0
+var dash_time := 5.0
 
 # --- Functions --- #
 func _ready() -> void:
@@ -65,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees += turn_dir * turn_speed * delta
 	
 	# update acceleration
-	if move_dir == 0.0:
+	if abs(move_dir) <= 0.10:
 		# deccelerate
 		if curr_speed < 0.0:
 			curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, 0.0)
@@ -73,7 +81,20 @@ func _physics_process(delta: float) -> void:
 			curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, 0.0)
 	else:
 		# accelerate
-		curr_speed = clampf(curr_speed + move_speed * accel_mod * delta * move_dir, -move_speed, move_speed)
+		if is_dashing:
+			curr_speed += move_speed * accel_mod * delta * move_dir * dash_increase
+			
+			if curr_speed > move_speed * dash_increase:
+				curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, move_speed * dash_increase)
+			if curr_speed < -move_speed * dash_increase:
+				curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, -move_speed * dash_increase)
+		else:
+			curr_speed += move_speed * accel_mod * delta * move_dir
+			
+			if curr_speed > move_speed:
+				curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, move_speed)
+			if curr_speed < -move_speed:
+				curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, -move_speed)
 	
 	# do movement
 	velocity = Vector2.from_angle(rotation + PI / 2.0) * curr_speed
@@ -140,6 +161,9 @@ func reset() -> void:
 	
 	# hp
 	hp.reset()
+	
+	# dashing
+	dash_time = max_dash_time
 	
 	# disable collision
 	$'shape'.set_deferred(&'disabled', true)
