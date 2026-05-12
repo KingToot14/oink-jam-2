@@ -11,6 +11,7 @@ region = Rect2(32, 24, 32, 24)
 script = ExtResource("1_edduh")
 unlocked = false
 name = "Jet Thrust"
+tooltip = "How much dashing increases speed"
 max_level = 5
 icon = SubResource("AtlasTexture_1x7wv")
 is_value_linear = true

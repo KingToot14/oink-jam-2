@@ -14,6 +14,18 @@ func _ready() -> void:
 	
 	update_info()
 
+func _on_mouse_enter() -> void:
+	super()
+	
+	# update info text
+	Globals.upgrade_menu.select_upgrade(upgrade)
+
+func _on_mouse_exit() -> void:
+	super()
+	
+	# clear info text
+	Globals.upgrade_menu.deselect_upgrade(upgrade)
+
 func update_info() -> void:
 	if not upgrade or Engine.is_editor_hint():
 		return

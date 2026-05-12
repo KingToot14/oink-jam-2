@@ -10,6 +10,7 @@ region = Rect2(0, 0, 32, 24)
 [resource]
 script = ExtResource("1_j8wkl")
 name = "Hull Strength"
+tooltip = "How much damage you can take"
 max_level = 9
 icon = SubResource("AtlasTexture_dd8i4")
 is_value_linear = true

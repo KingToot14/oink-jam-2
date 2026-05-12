@@ -12,6 +12,7 @@ script = ExtResource("1_r1278")
 unlocked = false
 locked_value = 0.0
 name = "Jet Capacity"
+tooltip = "How long you can dash for"
 max_level = 5
 icon = SubResource("AtlasTexture_777or")
 base_value = 5.0

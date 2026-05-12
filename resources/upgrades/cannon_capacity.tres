@@ -12,6 +12,7 @@ script = ExtResource("1_adlib")
 unlocked = false
 locked_value = 0.0
 name = "Cannon Capacity"
+tooltip = "How many cannon balls you can fire"
 max_level = 7
 icon = SubResource("AtlasTexture_wsjmu")
 value_exponent = 2.0

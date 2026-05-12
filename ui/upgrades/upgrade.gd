@@ -9,6 +9,8 @@ extends Resource
 
 ## The upgrade name
 @export var name: String
+## The description of what this upgrade does
+@export var tooltip: String
 ## The current upgrade level (should be set to 1 in the inspector)
 @export var level := 1
 ## The maximum level that this upgrade can be upgraded to

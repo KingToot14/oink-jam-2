@@ -10,6 +10,7 @@ region = Rect2(0, 24, 32, 24)
 [resource]
 script = ExtResource("1_143m1")
 name = "Fan Turning"
+tooltip = "How fast the sub turns"
 icon = SubResource("AtlasTexture_btmso")
 base_value = 40.0
 value_exponent = 1.1

@@ -12,6 +12,7 @@ script = ExtResource("1_km8p0")
 unlocked = false
 locked_value = 0.0
 name = "Cannon Power"
+tooltip = "How powerful cannon balls are"
 max_level = 3
 icon = SubResource("AtlasTexture_1cc7y")
 is_value_linear = true
