@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_edduh")
+unlocked = false
 name = "Jet Thrust"
 max_level = 5
 is_value_linear = true

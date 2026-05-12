@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_r1278")
+unlocked = false
+locked_value = 0.0
 name = "Jet Capacity"
 max_level = 5
 base_value = 5.0

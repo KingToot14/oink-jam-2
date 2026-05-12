@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_km8p0")
+unlocked = false
+locked_value = 0.0
 name = "Cannon Power"
 max_level = 3
 is_value_linear = true

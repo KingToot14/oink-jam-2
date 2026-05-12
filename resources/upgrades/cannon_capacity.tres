@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_adlib")
+unlocked = false
+locked_value = 0.0
 name = "Cannon Capacity"
 max_level = 7
 value_exponent = 2.0

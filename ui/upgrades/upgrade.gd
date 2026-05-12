@@ -2,6 +2,11 @@ class_name Upgrade
 extends Resource
 
 # --- Variables --- #
+## Determines whether or not this upgrade is unlocked
+@export var unlocked := true
+## The value to return when this upgrade is not locked
+@export var locked_value := 1.0
+
 ## The upgrade name
 @export var name: String
 ## The current upgrade level (should be set to 1 in the inspector)
@@ -30,6 +35,10 @@ extends Resource
 # --- Functions --- #
 ## Gets the current value of this upgrade based on [member level]
 func get_value() -> float:
+	# check if unlocked
+	if not unlocked:
+		return locked_value
+	
 	if is_value_linear:
 		return base_value + value_exponent * (level - 1)
 	else:

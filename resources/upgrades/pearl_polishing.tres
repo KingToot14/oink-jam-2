@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_ehkcp")
 name = "Pearl Polishing"
-max_level = 9
 is_value_linear = true
 value_exponent = 0.5
 base_cost = 25
+cost_exponent = 2.5
 metadata/_custom_type_script = "uid://b1ph6t32gauix"
