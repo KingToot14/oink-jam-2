@@ -1717,7 +1717,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="h_flow_container" type="HFlowContainer" parent="ui/upgrades" unique_id=2123410602]
+[node name="upgrades" type="HFlowContainer" parent="ui/upgrades" unique_id=2123410602]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1734,39 +1734,39 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 3
 alignment = 1
 
-[node name="upgrade_box" parent="ui/upgrades/h_flow_container" unique_id=1274575360 instance=ExtResource("13_trceg")]
+[node name="upgrade_box" parent="ui/upgrades/upgrades" unique_id=1274575360 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("14_a8y0u")
 
-[node name="upgrade_box_2" parent="ui/upgrades/h_flow_container" unique_id=2016695327 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_2" parent="ui/upgrades/upgrades" unique_id=2016695327 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("15_jkv2x")
 
-[node name="upgrade_box_3" parent="ui/upgrades/h_flow_container" unique_id=1485223563 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_3" parent="ui/upgrades/upgrades" unique_id=1485223563 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("16_muem4")
 
-[node name="upgrade_box_4" parent="ui/upgrades/h_flow_container" unique_id=2101571521 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_4" parent="ui/upgrades/upgrades" unique_id=2101571521 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("17_dp3eg")
 
-[node name="upgrade_box_5" parent="ui/upgrades/h_flow_container" unique_id=2143043354 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_5" parent="ui/upgrades/upgrades" unique_id=2143043354 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("18_jscy8")
 
-[node name="upgrade_box_6" parent="ui/upgrades/h_flow_container" unique_id=1663292456 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_6" parent="ui/upgrades/upgrades" unique_id=1663292456 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("19_pm3ni")
 
-[node name="upgrade_box_7" parent="ui/upgrades/h_flow_container" unique_id=978033704 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_7" parent="ui/upgrades/upgrades" unique_id=978033704 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("20_y6deb")
 
-[node name="upgrade_box_8" parent="ui/upgrades/h_flow_container" unique_id=1589364462 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_8" parent="ui/upgrades/upgrades" unique_id=1589364462 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("21_og1vs")
 
-[node name="upgrade_box_9" parent="ui/upgrades/h_flow_container" unique_id=434812797 instance=ExtResource("13_trceg")]
+[node name="upgrade_box_9" parent="ui/upgrades/upgrades" unique_id=434812797 instance=ExtResource("13_trceg")]
 layout_mode = 2
 upgrade = ExtResource("22_2wyq8")
 

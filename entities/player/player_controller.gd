@@ -286,6 +286,9 @@ func hit_flash() -> void:
 #region Dashing
 ## Returns how much of the dash is currently used
 func get_dash_percent() -> float:
+	if max_dash_time == 0.0:
+		return 0.0
+	
 	return dash_time / max_dash_time
 
 #endregion

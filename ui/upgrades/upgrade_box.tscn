@@ -180,4 +180,43 @@ scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="locked_field" type="Control" parent="." unique_id=1161802877]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fill" type="NinePatchRect" parent="locked_field" unique_id=1217352670]
+self_modulate = Color(0.16862746, 0.18039216, 0.20784314, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pkvyj")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="title" type="RichTextLabel" parent="locked_field" unique_id=684942517]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.62352943, 0.7019608, 0.8, 1)
+text = "Upgrade Locked"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="." to="." method="try_upgrade"]

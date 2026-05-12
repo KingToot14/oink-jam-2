@@ -28,6 +28,10 @@ func show_panel() -> void:
 	# update currency
 	$'gold_holder/gold_label'.text = "%s" % CurrencyManager.curr_gold
 	
+	# update upgrades
+	for upgrade_box: UpgradeBox in $'upgrades'.get_children():
+		upgrade_box.update_info()
+	
 	# show panel
 	modulate.a = 0.0
 	position.y = origin + 8

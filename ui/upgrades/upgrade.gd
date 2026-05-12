@@ -54,12 +54,16 @@ func get_cost() -> int:
 ## Tries to increase the level of this upgrade. This fails if the player
 ## doesn't have enough gold, or if the upgrade is already maxed
 func try_upgrade_level() -> bool:
-	# make sure player has enough gold
-	if CurrencyManager.curr_gold < get_cost():
+	# make sure upgrade is unlocked
+	if not unlocked:
 		return false
 	
 	# make sure upgrade is not maxed
 	if level >= max_level:
+		return false
+	
+	# make sure player has enough gold
+	if CurrencyManager.curr_gold < get_cost():
 		return false
 	
 	# do upgrade
