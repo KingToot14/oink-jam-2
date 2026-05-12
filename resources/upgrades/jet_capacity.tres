@@ -17,4 +17,5 @@ max_level = 5
 icon = SubResource("AtlasTexture_777or")
 base_value = 5.0
 base_cost = 150
+cost_exponent = 1.8
 metadata/_custom_type_script = "uid://b1ph6t32gauix"

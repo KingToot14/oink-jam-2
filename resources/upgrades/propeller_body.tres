@@ -15,4 +15,5 @@ icon = SubResource("AtlasTexture_btmso")
 base_value = 40.0
 value_exponent = 1.1
 base_cost = 15
+cost_exponent = 1.8
 metadata/_custom_type_script = "uid://b1ph6t32gauix"

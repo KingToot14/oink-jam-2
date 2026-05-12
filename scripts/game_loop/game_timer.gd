@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if not running or Globals.main.game_state != GameManager.GameState.GAMEPLAY:
 		return
 	
-	run_timer -= delta
+	run_timer -= delta * %'player'.get_depth_mod()
 	
 	# check if a new second was reached
 	var sec := ceili(run_timer)

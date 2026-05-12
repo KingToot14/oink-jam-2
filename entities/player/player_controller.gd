@@ -59,6 +59,12 @@ var curr_ammo := 1
 ## How much damage the cannon balls should do
 var cannon_damage := 1
 
+# - Depth - #
+## The maximum depth the sub can be before taking penalties
+@export var max_depth := 1
+## The current depth the sub is located at
+var curr_depth := 1
+
 # --- Functions --- #
 func _ready() -> void:
 	Globals.player = self
@@ -159,6 +165,14 @@ func _physics_process(delta: float) -> void:
 					rotation_degrees += 15
 				else:
 					rotation_degrees -= 15
+	
+	# check depth
+	if global_position.y > 1536.0:
+		curr_depth = 3
+	elif global_position.y > 768.0:
+		curr_depth = 2
+	else:
+		curr_depth = 1
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'fire_cannon'):
@@ -290,5 +304,17 @@ func get_dash_percent() -> float:
 		return 0.0
 	
 	return dash_time / max_dash_time
+
+#endregion
+
+#region Depth
+## Returns how much the timer should be accelerated by based on [member curr_depth] and
+## [member max_depth]
+func get_depth_mod() -> float:
+	if curr_depth <= max_depth:
+		return 1
+	
+	# 1 away = 1x, 2 away = 2x
+	return 1.5 * (2.0 ** (curr_depth - max_depth - 1))
 
 #endregion

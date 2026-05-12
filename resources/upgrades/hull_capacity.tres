@@ -14,4 +14,5 @@ tooltip = "How long you can last in a single run"
 icon = SubResource("AtlasTexture_m1v0u")
 base_value = 3.0
 base_cost = 10
+cost_exponent = 1.8
 metadata/_custom_type_script = "uid://b1ph6t32gauix"

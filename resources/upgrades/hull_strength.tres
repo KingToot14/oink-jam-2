@@ -16,4 +16,5 @@ icon = SubResource("AtlasTexture_dd8i4")
 is_value_linear = true
 value_exponent = 1.0
 base_cost = 50
+cost_exponent = 1.8
 metadata/_custom_type_script = "uid://b1ph6t32gauix"

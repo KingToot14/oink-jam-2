@@ -83,12 +83,7 @@ collision_mask = 13
 script = ExtResource("1_symyc")
 accel_mod = 1.5
 deccel_mod = 3.0
-move_speed = null
-turn_speed = null
 hp = NodePath("hp")
-dash_increase = null
-max_dash_time = null
-max_ammo = null
 metadata/_custom_type_script = "uid://t766j2pqsoyr"
 
 [node name="hp" type="Node" parent="." unique_id=311998690]
