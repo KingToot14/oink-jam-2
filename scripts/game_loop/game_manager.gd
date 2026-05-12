@@ -18,13 +18,11 @@ const MAIN_GAME_SCENE := preload("res://scenes/main_level.tscn")
 var level: Node2D
 
 ## The current game state
-@export var game_state := GameState.GAMEPLAY
+@export var game_state := GameState.MAIN_MENU
 
 # --- Functions --- #
 func _ready() -> void:
 	Globals.main = self
-	
-	reload_game()
 
 ## Sets the game state
 func set_game_state(state: GameState) -> void:
@@ -52,6 +50,9 @@ func load_level() -> void:
 	%'upgrades'.hide_panel()
 	
 	await get_tree().create_timer(1.00).timeout
+	
+	# hide title
+	$'ui/title'.hide()
 	
 	# reset level
 	%'player'.reset()
