@@ -4,6 +4,10 @@
 [ext_resource type="TileSet" uid="uid://cd5mjlac3wcj" path="res://tiles/walls.tres" id="2_8ra5a"]
 [ext_resource type="PackedScene" uid="uid://b0arvdya2di62" path="res://entities/sea_mine/sea_mine.tscn" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://qph6j0xmn8uh" path="res://entities/pearl/pearl.tscn" id="4_u2c82"]
+[ext_resource type="PackedScene" uid="uid://dcs88e3rhxtq2" path="res://entities/collectable/collectable.tscn" id="5_8ra5a"]
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="6_k5pu3"]
+[ext_resource type="Resource" uid="uid://bhqwf5keq8yco" path="res://resources/upgrades/jet_capacity.tres" id="7_iqu8w"]
+[ext_resource type="Resource" uid="uid://doykvw5b37jrv" path="res://resources/upgrades/jet_thrust.tres" id="8_5fr2l"]
 
 [node name="level" type="Node2D" unique_id=419102240]
 
@@ -770,3 +774,7 @@ variant = 1
 [node name="pearl_9" parent="pearls" unique_id=442375099 instance=ExtResource("4_u2c82")]
 position = Vector2(-90, 143)
 variant = 1
+
+[node name="collectable" parent="." unique_id=1708325037 instance=ExtResource("5_8ra5a")]
+position = Vector2(410, 293)
+upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("7_iqu8w"), ExtResource("8_5fr2l")])

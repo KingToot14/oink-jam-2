@@ -22,6 +22,7 @@ const BOB_TIME := 2.0
 ## Whether or not this pearl is currently collected
 var collected := false
 
+## The different sparkle sprite for each [enum PearlVariant]
 @export var sparkle_variants: Dictionary[PearlVariant, Texture2D] = {}
 
 ## The variant of pearl this instance is. This determines the sprite and sell price
