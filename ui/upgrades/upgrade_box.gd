@@ -26,6 +26,8 @@ func update_info() -> void:
 	
 	# update info
 	$'title'.text = upgrade.name
+	$'image'.texture = upgrade.icon
+	
 	$'level'.text = "Lvl %s" % upgrade.level
 	
 	if upgrade.level >= upgrade.max_level:

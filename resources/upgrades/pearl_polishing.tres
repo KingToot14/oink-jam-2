@@ -1,10 +1,16 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b1aj4d41enbko"]
 
 [ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_ehkcp"]
+[ext_resource type="Texture2D" uid="uid://l6x3tbnu08jo" path="res://ui/upgrades/upgrade_icons.png" id="1_qn7ys"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upy6e"]
+atlas = ExtResource("1_qn7ys")
+region = Rect2(64, 48, 32, 24)
 
 [resource]
 script = ExtResource("1_ehkcp")
 name = "Pearl Polishing"
+icon = SubResource("AtlasTexture_upy6e")
 is_value_linear = true
 value_exponent = 0.5
 base_cost = 25

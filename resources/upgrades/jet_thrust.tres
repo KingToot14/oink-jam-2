@@ -1,12 +1,18 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://doykvw5b37jrv"]
 
+[ext_resource type="Texture2D" uid="uid://l6x3tbnu08jo" path="res://ui/upgrades/upgrade_icons.png" id="1_1inn6"]
 [ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_edduh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x7wv"]
+atlas = ExtResource("1_1inn6")
+region = Rect2(32, 24, 32, 24)
 
 [resource]
 script = ExtResource("1_edduh")
 unlocked = false
 name = "Jet Thrust"
 max_level = 5
+icon = SubResource("AtlasTexture_1x7wv")
 is_value_linear = true
 base_value = 1.5
 value_exponent = 0.25

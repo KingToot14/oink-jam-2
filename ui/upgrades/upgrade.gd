@@ -14,6 +14,9 @@ extends Resource
 ## The maximum level that this upgrade can be upgraded to
 @export var max_level := 10
 
+## The icon to be used in the upgrade menu
+@export var icon: Texture2D
+
 ## Whether or not the upgrade value should be calculated exponentially (
 ## [code]base_value * value_exponent ** (level - 1)[/code]) or linearly (
 ## [code]base_value + value_exponent * (level - 1)[/code]
