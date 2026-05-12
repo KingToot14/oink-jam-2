@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="6_k5pu3"]
 [ext_resource type="Resource" uid="uid://bhqwf5keq8yco" path="res://resources/upgrades/jet_capacity.tres" id="7_iqu8w"]
 [ext_resource type="Resource" uid="uid://doykvw5b37jrv" path="res://resources/upgrades/jet_thrust.tres" id="8_5fr2l"]
+[ext_resource type="Resource" uid="uid://c03nb8lmgsnqv" path="res://resources/upgrades/max_depth.tres" id="9_iqu8w"]
 
 [node name="level" type="Node2D" unique_id=419102240]
 
@@ -778,3 +779,8 @@ variant = 1
 [node name="collectable" parent="." unique_id=1708325037 instance=ExtResource("5_8ra5a")]
 position = Vector2(410, 293)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("7_iqu8w"), ExtResource("8_5fr2l")])
+
+[node name="collectable_2" parent="." unique_id=1559420551 instance=ExtResource("5_8ra5a")]
+position = Vector2(-500, 402)
+upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("9_iqu8w")])
+upgrade_level = 2

@@ -193,6 +193,8 @@ func reset() -> void:
 	max_ammo = floori(Upgrades.get_upgrade_value(&'cannon_capacity'))
 	cannon_damage = floori(Upgrades.get_upgrade_value(&'cannon_power'))
 	
+	max_depth = floori(Upgrades.get_upgrade_value(&'max_depth'))
+	
 	# position
 	position = Vector2.ZERO
 	rotation = 0
@@ -315,6 +317,6 @@ func get_depth_mod() -> float:
 		return 1
 	
 	# 1 away = 1x, 2 away = 2x
-	return 1.5 * (2.0 ** (curr_depth - max_depth - 1))
+	return 1.8 * (2.0 ** (curr_depth - max_depth - 1))
 
 #endregion

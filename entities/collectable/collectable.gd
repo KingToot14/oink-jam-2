@@ -22,7 +22,10 @@ var origin: Vector2
 func _ready() -> void:
 	# hide if upgrade is already unlocked
 	for upgrade in upgrades:
-		if upgrade.unlocked:
+		if upgrade_level == -1 and upgrade.unlocked:
+			queue_free()
+			return
+		if upgrade_level > 0 and upgrade.level >= upgrade_level:
 			queue_free()
 			return
 	
