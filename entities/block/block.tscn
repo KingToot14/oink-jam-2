@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://bla0gv3x8t1d3"]
+
+[ext_resource type="Script" uid="uid://secq77mk7ued" path="res://entities/block/block.gd" id="1_v713e"]
+[ext_resource type="Texture2D" uid="uid://vhw0g36kq0l0" path="res://entities/block/main.png" id="2_e1cl0"]
+[ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_p6luf"]
+[ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="3_ged6v"]
+[ext_resource type="Shader" uid="uid://br8r03hctk3q1" path="res://entities/_shaders/ring.gdshader" id="3_wy03r"]
+[ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="4_12yh4"]
+
+[sub_resource type="Animation" id="Animation_wy03r"]
+resource_name = "break"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("splash_ring:material:shader_parameter/alpha")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.1, -0.8489365, 0.0001522596, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("splash_ring:material:shader_parameter/radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.05, 24.985184, 31, -0.4, -0.5539856, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy03r"]
+_data = {
+&"break": SubResource("Animation_wy03r")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12yh4"]
+resource_local_to_scene = true
+shader = ExtResource("3_wy03r")
+shader_parameter/texture_size = 64.0
+shader_parameter/radius = 1.0
+shader_parameter/width = 2.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aalj8"]
+resource_local_to_scene = true
+shader = ExtResource("4_12yh4")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1cl0"]
+resource_local_to_scene = true
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12yh4"]
+resource_local_to_scene = true
+size = Vector2(34, 34)
+
+[node name="block" type="StaticBody2D" unique_id=1793371811 groups=["wall"]]
+script = ExtResource("1_v713e")
+metadata/_custom_type_script = "uid://secq77mk7ued"
+
+[node name="hp" type="Node" parent="." unique_id=1792596284]
+script = ExtResource("2_p6luf")
+metadata/_custom_type_script = "uid://b3nlibanoldnk"
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=1384245037]
+libraries/ = SubResource("AnimationLibrary_wy03r")
+
+[node name="splash_ring" type="ColorRect" parent="." unique_id=1637003353]
+material = SubResource("ShaderMaterial_12yh4")
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1412312344]
+material = SubResource("ShaderMaterial_aalj8")
+texture = ExtResource("2_e1cl0")
+
+[node name="shape" type="CollisionShape2D" parent="." unique_id=1109811113]
+visible = false
+shape = SubResource("RectangleShape2D_e1cl0")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1606025981 node_paths=PackedStringArray("hp")]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_ged6v")
+hp = NodePath("../hp")
+metadata/_custom_type_script = "uid://iwsmaoecjpf8"
+
+[node name="shape" type="CollisionShape2D" parent="hitbox" unique_id=148742409]
+visible = false
+shape = SubResource("RectangleShape2D_12yh4")

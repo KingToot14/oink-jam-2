@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://c03nb8lmgsnqv" path="res://resources/upgrades/max_depth.tres" id="9_iqu8w"]
 [ext_resource type="Resource" uid="uid://cm8tecaa3beam" path="res://resources/upgrades/cannon_capacity.tres" id="10_2sb77"]
 [ext_resource type="Resource" uid="uid://b7m2hjyho11f8" path="res://resources/upgrades/cannon_power.tres" id="11_fkrx8"]
+[ext_resource type="PackedScene" uid="uid://bla0gv3x8t1d3" path="res://entities/block/block.tscn" id="12_fkrx8"]
 
 [node name="level" type="Node2D" unique_id=419102240]
 
@@ -720,7 +721,7 @@ variant = 1
 position = Vector2(162, 1271)
 
 [node name="pearl_251" parent="pearls" unique_id=134647784 instance=ExtResource("4_u2c82")]
-position = Vector2(224, 1269)
+position = Vector2(206, 1261)
 variant = 1
 
 [node name="pearl_252" parent="pearls" unique_id=1556098811 instance=ExtResource("4_u2c82")]
@@ -801,10 +802,11 @@ variant = 1
 position = Vector2(1, 1227)
 
 [node name="pearl_273" parent="pearls" unique_id=59402476 instance=ExtResource("4_u2c82")]
-position = Vector2(126, 1346)
+position = Vector2(120, 1312)
 
 [node name="pearl_274" parent="pearls" unique_id=740592946 instance=ExtResource("4_u2c82")]
-position = Vector2(77, 1325)
+position = Vector2(72, 1316)
+variant = 1
 
 [node name="pearl_275" parent="pearls" unique_id=409308230 instance=ExtResource("4_u2c82")]
 position = Vector2(49, 1397)
@@ -1448,3 +1450,10 @@ upgrade_level = 3
 [node name="collectable_4" parent="." unique_id=703700454 instance=ExtResource("5_8ra5a")]
 position = Vector2(-360, 1242)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("10_2sb77"), ExtResource("11_fkrx8")])
+
+[node name="collectable_5" parent="." unique_id=596562099 instance=ExtResource("5_8ra5a")]
+position = Vector2(-54, 131)
+upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("10_2sb77"), ExtResource("11_fkrx8")])
+
+[node name="block" parent="." unique_id=1793371811 instance=ExtResource("12_fkrx8")]
+position = Vector2(-144, 192)
