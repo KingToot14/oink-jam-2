@@ -167,7 +167,7 @@ func _physics_process(delta: float) -> void:
 					rotation_degrees -= 15
 	
 	# check depth
-	if global_position.y > 1536.0:
+	if global_position.y > 1352.0:
 		curr_depth = 3
 	elif global_position.y > 768.0:
 		curr_depth = 2
