@@ -176,7 +176,7 @@ script = ExtResource("2_eelpe")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=218158371]
-stream = ExtResource("3_trgcs")
+stream = ExtResource("5_trgcs")
 bus = &"Underwater"
 script = ExtResource("3_5g3xr")
 sfx_library = Dictionary[StringName, ExtResource("4_wxwcc")]({

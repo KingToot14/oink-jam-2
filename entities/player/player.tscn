@@ -23,6 +23,12 @@ stream = ExtResource("3_wvtmh")
 volume = -6.0
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
+[sub_resource type="Resource" id="Resource_a1qjk"]
+script = ExtResource("4_bectd")
+stream = ExtResource("3_7thud")
+pitch_scale = 0.75
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
 shader = ExtResource("2_sglur")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
@@ -112,6 +118,7 @@ pitch_scale = 0.25
 bus = &"Underwater"
 script = ExtResource("3_qiwj3")
 sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({
+&"cannon": SubResource("Resource_a1qjk"),
 &"engine": SubResource("Resource_7thud"),
 &"wall_hit": SubResource("Resource_wvtmh")
 })

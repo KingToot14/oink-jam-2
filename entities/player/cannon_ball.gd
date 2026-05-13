@@ -22,8 +22,14 @@ func _physics_process(delta: float) -> void:
 func _on_hit(_area: Area2D) -> void:
 	do_hit()
 
+## Tells the cannon ball that it's been hit. This plays the breaking animation and sfx
 func do_hit() -> void:
 	broken = true
+	
+	# play sfx
+	$'sfx'.play_sfx(&'explode')
+	
+	# play animation
 	$'animator'.play(&'break')
 
 ## Sets the velocity for the cannon ball

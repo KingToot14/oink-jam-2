@@ -319,6 +319,9 @@ func fire_cannon(mouse_pos: Vector2) -> void:
 	var direction := (mouse_pos - global_position).normalized()
 	var angle := atan2(direction.y, direction.x)
 	
+	# play fire sfx
+	$'sfx'.play_sfx(&'cannon')
+	
 	# play fire animation
 	$'cannon'.global_rotation = angle - PI / 2.0
 	$'cannon/animator'.play(&'fire')
