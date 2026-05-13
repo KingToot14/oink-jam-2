@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ck5fw1tubjg42" path="res://scripts/game_loop/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://dstl4l2tlagnx" path="res://scripts/game_loop/game_timer.gd" id="1_sugp2"]
+[ext_resource type="AudioStream" uid="uid://dqxk4nh2cj73n" path="res://resources/music/Exploration Theme.ogg" id="2_fuf3a"]
 [ext_resource type="PackedScene" uid="uid://c3r2lks7wjia6" path="res://entities/player/player.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="5_fv21b"]
 [ext_resource type="AudioStream" uid="uid://us0eiwk5fg6j" path="res://ui/sfx/upgrade.tres" id="5_kmb1v"]
@@ -78,6 +79,12 @@ region = Rect2(24, 0, 8, 8)
 
 [node name="main" type="Node2D" unique_id=604871667]
 script = ExtResource("1_jyhfs")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=918771672]
+stream = ExtResource("2_fuf3a")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
 
 [node name="game_timer" type="Node" parent="." unique_id=1555108083]
 unique_name_in_owner = true

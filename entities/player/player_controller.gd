@@ -73,10 +73,10 @@ var ENGINE_PITCH_LOW := 0.50
 var ENGINE_PITCH_HIGH := 2.00
 
 ## The lowest volume that the engine can reach
-var ENGINE_VOLUME_LOW := 0.50
+var ENGINE_VOLUME_LOW := 1.00
 
 ## The highest volume that the engine can reach
-var ENGINE_VOLUME_HIGH := 1.00
+var ENGINE_VOLUME_HIGH := 2.00
 
 ## The [AudioStreamPlayer2D] that handles the "engine" sound effect. This is used when
 ## modulating the engine pitch based on speed/activity
