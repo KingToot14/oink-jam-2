@@ -4,9 +4,18 @@
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_eelpe"]
 [ext_resource type="Texture2D" uid="uid://btg6u3gk4ju1k" path="res://entities/sea_mine/main.png" id="2_stuy7"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="3_2twhj"]
+[ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="3_5g3xr"]
 [ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="3_a3tfj"]
 [ext_resource type="Shader" uid="uid://br8r03hctk3q1" path="res://entities/_shaders/ring.gdshader" id="3_jnd77"]
 [ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="4_5ryts"]
+[ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="4_wxwcc"]
+[ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="5_trgcs"]
+
+[sub_resource type="Resource" id="Resource_mempu"]
+script = ExtResource("4_wxwcc")
+stream = ExtResource("5_trgcs")
+pitch_scale = 0.25
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Animation" id="Animation_jnd77"]
 length = 0.001
@@ -158,6 +167,14 @@ script = ExtResource("1_yyjup")
 [node name="hp" type="Node" parent="." unique_id=961122728]
 script = ExtResource("2_eelpe")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=218158371]
+bus = &"Underwater"
+script = ExtResource("3_5g3xr")
+sfx_library = Dictionary[StringName, ExtResource("4_wxwcc")]({
+&"explode": SubResource("Resource_mempu")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=330194279]
 libraries/ = SubResource("AnimationLibrary_jnd77")

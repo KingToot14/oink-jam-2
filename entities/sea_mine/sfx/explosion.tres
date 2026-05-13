@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bht0kmnhwvvo0"]
+
+[ext_resource type="AudioStream" uid="uid://daujfrep3lq4" path="res://entities/sea_mine/sfx/balloon pop 2.wav" id="1_vwqy4"]
+[ext_resource type="AudioStream" uid="uid://xnds327mfc7f" path="res://entities/sea_mine/sfx/balloon pop 3.wav" id="2_wg8tr"]
+[ext_resource type="AudioStream" uid="uid://dkayf2gdnoerm" path="res://entities/sea_mine/sfx/balloon pop 4.wav" id="3_7lun4"]
+
+[resource]
+random_pitch = 1.0145453
+streams_count = 3
+stream_0/stream = ExtResource("1_vwqy4")
+stream_1/stream = ExtResource("2_wg8tr")
+stream_2/stream = ExtResource("3_7lun4")

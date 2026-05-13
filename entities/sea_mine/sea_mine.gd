@@ -32,6 +32,10 @@ func _on_area_entered(area: Area2D) -> void:
 
 ## Handles the animation and logic for the sea mine exploding
 func explode() -> void:
+	# play sfx
+	$'sfx'.play_sfx(&'explode')
+	
+	# play animation
 	$'animator'.play(&'explode')
 
 ## Applies an explosion knockback force to the player

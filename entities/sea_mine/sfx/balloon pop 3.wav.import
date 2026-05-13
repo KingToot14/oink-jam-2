@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xnds327mfc7f"
+path="res://.godot/imported/balloon pop 3.wav-e55b7748e0dddbe5f55291132bcb053b.sample"
+
+[deps]
+
+source_file="res://entities/sea_mine/sfx/balloon pop 3.wav"
+dest_files=["res://.godot/imported/balloon pop 3.wav-e55b7748e0dddbe5f55291132bcb053b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

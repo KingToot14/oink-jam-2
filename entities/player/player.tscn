@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfayk3i0ewnia" path="res://entities/player/main.png" id="2_abrql"]
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_bls4j"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_sglur"]
+[ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="3_7thud"]
 [ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="3_qiwj3"]
 [ext_resource type="AudioStream" uid="uid://cql6wwngw5q0m" path="res://entities/player/sfx/Vehicle_Car_Engine_1000_RPM_Front_Exterior_Loop_Mono.wav" id="3_wvtmh"]
 [ext_resource type="AudioStream" uid="uid://cka34f6blvuwm" path="res://entities/player/sfx/wall_hit.tres" id="4_26q78"]
@@ -106,7 +107,8 @@ script = ExtResource("2_bls4j")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=2117946755]
-stream = ExtResource("3_wvtmh")
+stream = ExtResource("3_7thud")
+pitch_scale = 0.25
 bus = &"Underwater"
 script = ExtResource("3_qiwj3")
 sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({
