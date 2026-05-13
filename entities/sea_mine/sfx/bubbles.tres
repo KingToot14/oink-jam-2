@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c3y7enb0sj5ji"]
+
+[ext_resource type="AudioStream" uid="uid://cxrsfti3hu5u" path="res://entities/sea_mine/sfx/bubbles 1.wav" id="1_jmwsd"]
+
+[resource]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("1_jmwsd")

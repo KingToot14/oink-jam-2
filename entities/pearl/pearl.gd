@@ -71,6 +71,9 @@ func _on_body_entered(body: Node2D) -> void:
 		Globals.collect_panel.load_collect_info(pearl_info)
 		Globals.pearl_collected = true
 	
+	# play collection sfx
+	$'sfx'.play_sfx(&'collect')
+	
 	# play collection animation
 	$'particles'.emitting = true
 	

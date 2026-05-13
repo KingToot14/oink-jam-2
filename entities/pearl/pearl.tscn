@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c4qmmw7seq0mg" path="res://entities/pearl/main.png" id="2_01o6v"]
 [ext_resource type="Resource" uid="uid://d2i115b5vwj" path="res://resources/collects/pearl.tres" id="3_3irae"]
 [ext_resource type="Texture2D" uid="uid://b7n0ld5eov8fi" path="res://entities/pearl/particles.png" id="3_e16o1"]
+[ext_resource type="AudioStream" uid="uid://c1hb18onwchdl" path="res://entities/pearl/sfx/collect_bead.tres" id="4_5b752"]
+[ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="5_5ybqr"]
+[ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="6_m0qmr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3irae"]
 atlas = ExtResource("3_e16o1")
@@ -22,6 +25,13 @@ load_path = "res://.godot/imported/particles.png-4113750ad568dffa9a543f1174b54e5
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b752"]
 atlas = SubResource("CompressedTexture2D_ju7he")
 region = Rect2(14, 0, 7, 7)
+
+[sub_resource type="Resource" id="Resource_pf5wc"]
+script = ExtResource("6_m0qmr")
+stream = ExtResource("4_5b752")
+volume = -6.0
+pitch_scale = 1.25
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Curve" id="Curve_e16o1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -47,6 +57,17 @@ sparkle_variants = Dictionary[int, Texture2D]({
 })
 pearl_info = ExtResource("3_3irae")
 metadata/_custom_type_script = "uid://7nacnyym15ju"
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1824177857]
+stream = ExtResource("4_5b752")
+volume_db = -6.0
+pitch_scale = 1.25
+bus = &"SFX"
+script = ExtResource("5_5ybqr")
+sfx_library = Dictionary[StringName, ExtResource("6_m0qmr")]({
+&"collect": SubResource("Resource_pf5wc")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 
 [node name="particles" type="CPUParticles2D" parent="." unique_id=1461515103]
 z_index = -5

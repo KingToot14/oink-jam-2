@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://db1jayeneiqcv"]
+
+[ext_resource type="AudioStream" uid="uid://fv2grj032kll" path="res://entities/pearl/sfx/glass full of beads 4.wav" id="1_71h0t"]
+[ext_resource type="AudioStream" uid="uid://bnr1jhipaknjm" path="res://entities/pearl/sfx/glass full of beads 7.wav" id="2_1mk0t"]
+[ext_resource type="AudioStream" uid="uid://bic2povyjqveb" path="res://entities/pearl/sfx/glass full of beads 8.wav" id="3_snp8h"]
+
+[resource]
+random_pitch = 1.0293022
+streams_count = 3
+stream_0/stream = ExtResource("1_71h0t")
+stream_1/stream = ExtResource("2_1mk0t")
+stream_2/stream = ExtResource("3_snp8h")

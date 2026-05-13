@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://btp5kvr3nr0ed"]
+
+[ext_resource type="AudioStream" uid="uid://cmt26gxf77vi" path="res://entities/pearl/sfx/sand container movement 1.wav" id="1_drxqp"]
+[ext_resource type="AudioStream" uid="uid://d140b0mmqswia" path="res://entities/pearl/sfx/sand container movement 2.wav" id="2_t4iek"]
+[ext_resource type="AudioStream" uid="uid://g7rg2ex6vs44" path="res://entities/pearl/sfx/sand container movement 4.wav" id="3_o1ogf"]
+
+[resource]
+random_pitch = 1.1892071
+streams_count = 3
+stream_0/stream = ExtResource("1_drxqp")
+stream_1/stream = ExtResource("2_t4iek")
+stream_2/stream = ExtResource("3_o1ogf")

@@ -34,6 +34,7 @@ func _on_area_entered(area: Area2D) -> void:
 func explode() -> void:
 	# play sfx
 	$'sfx'.play_sfx(&'explode')
+	$'sfx'.play_sfx(&'bubble')
 	
 	# play animation
 	$'animator'.play(&'explode')

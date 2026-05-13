@@ -17,6 +17,10 @@ config/custom_user_dir_name="KingToot/Oink Jam 2"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://kwswihgplpth"
+
 [autoload]
 
 Globals="*uid://b5lw4lxxrvbs0"
@@ -40,7 +44,9 @@ naming/node_name_casing=2
 
 folder_colors={
 "res://entities/": "red",
+"res://entities/pearl/sfx/": "purple",
 "res://entities/player/sfx/": "purple",
+"res://entities/sea_mine/sfx/": "purple",
 "res://resources/": "teal",
 "res://scenes/": "yellow",
 "res://scripts/": "blue",
