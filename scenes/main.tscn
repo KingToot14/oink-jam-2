@@ -405,7 +405,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="start_button" type="BaseButton" parent="ui/title/buttons" unique_id=1505191875]
+[node name="start_button" type="BaseButton" parent="ui/title/buttons" unique_id=1505191875 node_paths=PackedStringArray("fill")]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -471,6 +471,9 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.19607843, 0.21176471, 0.23921569, 1)
+fill = NodePath("backing")
 metadata/_custom_type_script = "uid://0simyse5dedc"
 
 [node name="fill" type="NinePatchRect" parent="ui/title/buttons/start_button" unique_id=129759812]
@@ -486,7 +489,25 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="label" type="RichTextLabel" parent="ui/title/buttons/start_button/fill" unique_id=2134312069]
+[node name="backing" type="NinePatchRect" parent="ui/title/buttons/start_button" unique_id=926164458]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/title/buttons/start_button" unique_id=2134312069]
 self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -503,7 +524,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="settings_button" type="BaseButton" parent="ui/title/buttons" unique_id=1829069740]
+[node name="settings_button" type="BaseButton" parent="ui/title/buttons" unique_id=1829069740 node_paths=PackedStringArray("fill")]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -569,6 +590,9 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.19607843, 0.21176471, 0.23921569, 1)
+fill = NodePath("backing")
 metadata/_custom_type_script = "uid://0simyse5dedc"
 
 [node name="fill" type="NinePatchRect" parent="ui/title/buttons/settings_button" unique_id=1840395280]
@@ -584,7 +608,25 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="label" type="RichTextLabel" parent="ui/title/buttons/settings_button/fill" unique_id=1327138718]
+[node name="backing" type="NinePatchRect" parent="ui/title/buttons/settings_button" unique_id=1197667480]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/title/buttons/settings_button" unique_id=1327138718]
 self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -601,7 +643,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="about_button" type="BaseButton" parent="ui/title/buttons" unique_id=10047327]
+[node name="about_button" type="BaseButton" parent="ui/title/buttons" unique_id=10047327 node_paths=PackedStringArray("fill")]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -667,6 +709,9 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.19607843, 0.21176471, 0.23921569, 1)
+fill = NodePath("backing")
 metadata/_custom_type_script = "uid://0simyse5dedc"
 
 [node name="fill" type="NinePatchRect" parent="ui/title/buttons/about_button" unique_id=760765136]
@@ -682,7 +727,25 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="label" type="RichTextLabel" parent="ui/title/buttons/about_button/fill" unique_id=526756568]
+[node name="backing" type="NinePatchRect" parent="ui/title/buttons/about_button" unique_id=1153449089]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/title/buttons/about_button" unique_id=526756568]
 self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2348,9 +2411,411 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="settings" type="Control" parent="ui" unique_id=1713530364]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -90.0
+offset_right = 80.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/settings" unique_id=382661100]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_choun")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Control" parent="ui/settings" unique_id=1884735244]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 18.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/settings/title" unique_id=854729260]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/settings/title" unique_id=1747564167]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "SETTINGS"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="close_button" type="BaseButton" parent="ui/settings" unique_id=116673002 node_paths=PackedStringArray("fill")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -19.0
+offset_right = 25.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="ui/settings/close_button" unique_id=986509016]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="text" type="RichTextLabel" parent="ui/settings/close_button" unique_id=1526276340]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Close"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="about" type="Control" parent="ui" unique_id=1284979722]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -90.0
+offset_right = 120.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/about" unique_id=961036549]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_choun")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Control" parent="ui/about" unique_id=323701270]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 18.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="fill" type="NinePatchRect" parent="ui/about/title" unique_id=308170526]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="label" type="RichTextLabel" parent="ui/about/title" unique_id=1767532043]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "ABOUT"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rich_text_label" type="RichTextLabel" parent="ui/about" unique_id=1727026403]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.0
+offset_top = 22.0
+offset_right = -6.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.62352943, 0.7019608, 0.8, 1)
+text = "PRESSURE PANIC! was created for the second Oink Jam. There were two themes for this jam, and I picked the them of Under Pressure. This game surrounds a simple loop where you must collect gold, explore a cave, and survive the dangerous inhabitants before your oxygen runs out!"
+
+[node name="rich_text_label_2" type="RichTextLabel" parent="ui/about" unique_id=1218449915]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.0
+offset_top = 108.0
+offset_right = -6.0
+offset_bottom = 156.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.62352943, 0.7019608, 0.8, 1)
+text = "All art assets, code, and design was done by me, KingToot. Sound Effects were gathered through various open sources, and music was sourced from wherever I find it!"
+
+[node name="close_button" type="BaseButton" parent="ui/about" unique_id=48123495 node_paths=PackedStringArray("fill")]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -19.0
+offset_right = 25.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+script = ExtResource("11_ya4ey")
+normal_color = Color(0.14117648, 0.15294118, 0.18039216, 1)
+hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
+fill = NodePath("fill")
+metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="fill" type="NinePatchRect" parent="ui/about/close_button" unique_id=366476629]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_choun")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="text" type="RichTextLabel" parent="ui/about/close_button" unique_id=1738444824]
+self_modulate = Color(0.8117647, 0.85882354, 0.9019608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Close"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="ui/title/buttons/start_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/title/buttons/settings_button" to="ui/settings" method="show"]
+[connection signal="pressed" from="ui/title/buttons/about_button" to="ui/about" method="show"]
 [connection signal="pressed" from="ui/death_oxygen/retry_button" to="." method="reload_game"]
 [connection signal="pressed" from="ui/death_oxygen/upgrade_button" to="." method="open_upgrades"]
 [connection signal="pressed" from="ui/death_health/retry_button" to="." method="reload_game"]
 [connection signal="pressed" from="ui/death_health/upgrade_button" to="." method="open_upgrades"]
 [connection signal="pressed" from="ui/upgrades/retry_button" to="." method="load_level"]
+[connection signal="pressed" from="ui/settings/close_button" to="ui/settings" method="hide"]
+[connection signal="pressed" from="ui/about/close_button" to="ui/about" method="hide"]
