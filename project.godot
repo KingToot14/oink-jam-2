@@ -40,6 +40,7 @@ naming/node_name_casing=2
 
 folder_colors={
 "res://entities/": "red",
+"res://entities/player/sfx/": "purple",
 "res://resources/": "teal",
 "res://scenes/": "yellow",
 "res://scripts/": "blue",

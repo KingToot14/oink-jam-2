@@ -65,6 +65,9 @@ var cannon_damage := 1
 ## The current depth the sub is located at
 var curr_depth := 1
 
+# - Audio - #
+
+
 # --- Functions --- #
 func _ready() -> void:
 	Globals.player = self
@@ -167,6 +170,9 @@ func _physics_process(delta: float) -> void:
 					rotation_degrees += 15
 				else:
 					rotation_degrees -= 15
+			
+			# play sfx
+			$'sfx'.play_sfx(&'wall_hit')
 	
 	# check depth
 	if global_position.y > 1352.0:

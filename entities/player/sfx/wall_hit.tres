@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cka34f6blvuwm"]
+
+[ext_resource type="AudioStream" uid="uid://brbp03358iqqn" path="res://entities/player/sfx/metal hit 3.wav" id="1_to14w"]
+[ext_resource type="AudioStream" uid="uid://bl2my8hbaj2nf" path="res://entities/player/sfx/metal hit 4.wav" id="2_p67ja"]
+[ext_resource type="AudioStream" uid="uid://dc5bnb080pacv" path="res://entities/player/sfx/metal hit 5.wav" id="3_dg48n"]
+
+[resource]
+random_pitch = 1.0145453
+streams_count = 3
+stream_0/stream = ExtResource("1_to14w")
+stream_1/stream = ExtResource("2_p67ja")
+stream_2/stream = ExtResource("3_dg48n")
