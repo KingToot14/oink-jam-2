@@ -13,6 +13,128 @@
 [ext_resource type="Resource" uid="uid://b7m2hjyho11f8" path="res://resources/upgrades/cannon_power.tres" id="11_fkrx8"]
 [ext_resource type="PackedScene" uid="uid://bla0gv3x8t1d3" path="res://entities/block/block.tscn" id="12_fkrx8"]
 
+[sub_resource type="Animation" id="Animation_jnd77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_source/shape:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2twhj"]
+resource_name = "explode"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_source/shape:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 24.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("splash_ring:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.1, -0.8489365, 0.0001522596, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("splash_ring:material:shader_parameter/radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.05, 24.985184, 31, -0.4, -0.5539856, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnd77"]
+_data = {
+&"RESET": SubResource("Animation_jnd77"),
+&"explode": SubResource("Animation_2twhj")
+}
+
 [node name="level" type="Node2D" unique_id=419102240]
 
 [node name="floor" type="TileMapLayer" parent="." unique_id=527414823]
@@ -1436,20 +1558,26 @@ variant = 1
 [node name="collectable" parent="." unique_id=1708325037 instance=ExtResource("5_8ra5a")]
 position = Vector2(410, 293)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("7_iqu8w"), ExtResource("8_5fr2l")])
+variant = 2
 
 [node name="collectable_2" parent="." unique_id=1559420551 instance=ExtResource("5_8ra5a")]
 position = Vector2(-500, 402)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("9_iqu8w")])
 upgrade_level = 2
 
+[node name="animator" type="AnimationPlayer" parent="collectable_2" unique_id=1584291431]
+libraries/ = SubResource("AnimationLibrary_jnd77")
+
 [node name="collectable_3" parent="." unique_id=71979816 instance=ExtResource("5_8ra5a")]
 position = Vector2(508, 929)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("9_iqu8w")])
 upgrade_level = 3
+variant = 1
 
 [node name="collectable_4" parent="." unique_id=703700454 instance=ExtResource("5_8ra5a")]
 position = Vector2(-360, 1242)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("10_2sb77"), ExtResource("11_fkrx8")])
+variant = 3
 
 [node name="block" parent="." unique_id=1793371811 instance=ExtResource("12_fkrx8")]
 position = Vector2(32, 1344)

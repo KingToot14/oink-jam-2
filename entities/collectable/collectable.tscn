@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://dcs88e3rhxtq2"]
 
 [ext_resource type="Script" uid="uid://c8un6s6n8l655" path="res://entities/collectable/collectable.gd" id="1_v761h"]
-[ext_resource type="Texture2D" uid="uid://c4qmmw7seq0mg" path="res://entities/pearl/main.png" id="2_hphvv"]
+[ext_resource type="Texture2D" uid="uid://qec08ifxtcvp" path="res://entities/player/cannon.png" id="2_7gntu"]
+[ext_resource type="Texture2D" uid="uid://dvg36e726w2ft" path="res://entities/collectable/hull_icons.png" id="2_cshnw"]
 [ext_resource type="Texture2D" uid="uid://b7n0ld5eov8fi" path="res://entities/pearl/particles.png" id="2_xk1gb"]
+[ext_resource type="Texture2D" uid="uid://c05itfr2iwv7j" path="res://entities/collectable/dash_icon.png" id="3_nfinj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8orj"]
+atlas = ExtResource("2_cshnw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxgxl"]
+atlas = ExtResource("2_cshnw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugjw7"]
+atlas = ExtResource("2_7gntu")
+region = Rect2(2, 4, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7gntu"]
 atlas = ExtResource("2_xk1gb")
@@ -18,15 +32,22 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hphvv"]
-radius = 6.0
+radius = 8.0
 
 [node name="collectable" type="Area2D" unique_id=1708325037]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_v761h")
+variant_sprites = Dictionary[int, Texture2D]({
+0: SubResource("AtlasTexture_d8orj"),
+1: SubResource("AtlasTexture_pxgxl"),
+2: ExtResource("3_nfinj"),
+3: SubResource("AtlasTexture_ugjw7")
+})
 metadata/_custom_type_script = "uid://c8un6s6n8l655"
 
 [node name="particles" type="CPUParticles2D" parent="." unique_id=149868902]
+self_modulate = Color(1, 1, 0, 1)
 z_index = -5
 emitting = false
 texture = SubResource("AtlasTexture_7gntu")
@@ -46,8 +67,7 @@ scale_amount_curve = SubResource("Curve_ugjw7")
 color_ramp = SubResource("Gradient_cshnw")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=2036708499]
-texture = ExtResource("2_hphvv")
-hframes = 3
+texture = SubResource("AtlasTexture_d8orj")
 
 [node name="shape" type="CollisionShape2D" parent="." unique_id=1316418667]
 shape = SubResource("CircleShape2D_hphvv")

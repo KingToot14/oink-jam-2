@@ -89,7 +89,7 @@ shader_parameter/alpha = 1.0
 resource_local_to_scene = true
 shader = ExtResource("4_12yh4")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/intensity = 0.0
+shader_parameter/intensity = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1cl0"]
 resource_local_to_scene = true

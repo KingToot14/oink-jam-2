@@ -88,11 +88,13 @@ func _physics_process(delta: float) -> void:
 	var move_dir := Input.get_axis(&'move_backward', &'move_forward')
 	var turn_dir := Input.get_axis(&'turn_left', &'turn_right')
 	
+	var turn_mod := curr_speed / move_speed
+	
 	# update direction
 	if move_dir < 0.0:
-		rotation_degrees -= turn_dir * turn_speed * delta
+		rotation_degrees -= turn_dir * turn_speed * turn_mod * delta
 	else:
-		rotation_degrees += turn_dir * turn_speed * delta
+		rotation_degrees += turn_dir * turn_speed * turn_mod * delta
 	
 	# update acceleration
 	if abs(move_dir) <= 0.10:
@@ -217,10 +219,33 @@ func reset() -> void:
 	# cannon
 	curr_ammo = max_ammo
 	$'cannon'.rotation = 0.0
+	$'cannon'.visible = max_ammo > 0
 	
 	# disable collision
 	$'shape'.set_deferred(&'disabled', true)
 
+## Checks for unlockable upgrades (depth, cannon, dash)
+func reload_unlocked() -> void:
+	# depth
+	max_depth = floori(Upgrades.get_upgrade_value(&'max_depth'))
+	
+	# dash
+	if dash_increase == 1.0:
+		dash_increase = Upgrades.get_upgrade_value(&'jet_thrust')
+		max_dash_time = Upgrades.get_upgrade_value(&'jet_capacity')
+		
+		dash_time = max_dash_time
+	
+	# cannon
+	if max_ammo == 0:
+		max_ammo = floori(Upgrades.get_upgrade_value(&'cannon_capacity'))
+		cannon_damage = floori(Upgrades.get_upgrade_value(&'cannon_power'))
+		
+		curr_ammo = max_ammo
+		
+		$'cannon'.visible = max_ammo > 0
+
+## Enables collision when the game is started
 func start_game() -> void:
 	$'shape'.set_deferred(&'disabled', false)
 
