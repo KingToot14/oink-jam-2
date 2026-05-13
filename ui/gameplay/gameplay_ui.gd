@@ -18,9 +18,11 @@ func _ready() -> void:
 	
 	# handle death
 	%'game_timer'.timer_ended.connect(%'death_oxygen'.show_panel)
+	%'game_timer'.timer_ended.connect(%'player'.end_game)
 	%'game_timer'.timer_ended.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
 	%'player'.hp.died.connect(%'death_health'.show_panel)
+	%'player'.hp.died.connect(%'player'.end_game)
 	%'player'.hp.died.connect(Globals.main.set_game_state.bind(GameManager.GameState.DEATH))
 	
 	# actions

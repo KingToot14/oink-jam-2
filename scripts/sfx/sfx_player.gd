@@ -34,3 +34,8 @@ func _ready() -> void:
 ## with polyphony
 func play_sfx(sfx_key: StringName) -> void:
 	sfx_players[sfx_key].play()
+
+## Stops an audio stream player from running. Useful when playing a longer sound, or a sound
+## that should loop until externally stopped
+func stop_sfx(sfx_key: StringName) -> void:
+	sfx_players[sfx_key].stop()

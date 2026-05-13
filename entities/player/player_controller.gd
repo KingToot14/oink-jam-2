@@ -66,7 +66,21 @@ var cannon_damage := 1
 var curr_depth := 1
 
 # - Audio - #
+## The lowest pitch that the engine can reach
+var ENGINE_PITCH_LOW := 0.50
 
+## The highest pitch that the engine can reach
+var ENGINE_PITCH_HIGH := 2.00
+
+## The lowest volume that the engine can reach
+var ENGINE_VOLUME_LOW := 0.50
+
+## The highest volume that the engine can reach
+var ENGINE_VOLUME_HIGH := 1.00
+
+## The [AudioStreamPlayer2D] that handles the "engine" sound effect. This is used when
+## modulating the engine pitch based on speed/activity
+var engine_player: AudioStreamPlayer2D
 
 # --- Functions --- #
 func _ready() -> void:
@@ -74,6 +88,14 @@ func _ready() -> void:
 	
 	# setup signals
 	hp.hp_modified.connect(hit_flash)
+	
+	await get_tree().process_frame
+	
+	# get engine player
+	engine_player = $'sfx'.sfx_players[&'engine']
+	engine_player.volume_linear = 0.0
+	
+	$'sfx'.play_sfx(&'engine')
 
 func _physics_process(delta: float) -> void:
 	# only move when in gameplay
@@ -127,6 +149,13 @@ func _physics_process(delta: float) -> void:
 				curr_speed = maxf(curr_speed - move_speed * deccel_mod * delta, move_speed)
 			if curr_speed < -move_speed:
 				curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, -move_speed)
+	
+	# update engine audio
+	engine_player.volume_linear = minf(
+		lerpf(ENGINE_VOLUME_LOW, ENGINE_VOLUME_HIGH, absf(curr_speed / move_speed)),
+		ENGINE_VOLUME_HIGH
+	)
+	engine_player.pitch_scale = lerpf(ENGINE_PITCH_LOW, ENGINE_PITCH_HIGH, absf(curr_speed / move_speed))
 	
 	# do movement
 	velocity = Vector2.from_angle(rotation + PI / 2.0) * curr_speed
@@ -255,9 +284,23 @@ func reload_unlocked() -> void:
 		
 		cannon_fired.emit()
 
-## Enables collision when the game is started
+## Set up the player when the game is started
 func start_game() -> void:
+	# enable collision
 	$'shape'.set_deferred(&'disabled', false)
+	
+	# start up
+	var tween := create_tween().set_parallel()
+	
+	tween.tween_property(engine_player, ^"volume_linear", ENGINE_VOLUME_LOW, 0.15)
+
+## Stop gameplay code when the game is ended
+func end_game() -> void:
+	# shut down engine audio
+	var tween := create_tween().set_parallel()
+	
+	tween.tween_property(engine_player, ^"volume_linear", 0.0, 0.50)
+	tween.tween_property(engine_player, ^"pitch_scale", ENGINE_PITCH_LOW, 0.50)
 
 ## Fires a single torpedo towards the [member mouse_pos]
 func fire_cannon(mouse_pos: Vector2) -> void:
