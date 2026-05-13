@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://drsqr17s77cpw"]
 
 [ext_resource type="Texture2D" uid="uid://l6x3tbnu08jo" path="res://ui/upgrades/upgrade_icons.png" id="1_2ljj7"]
-[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_j8wkl"]
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://resources/upgrades/upgrade.gd" id="1_j8wkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dd8i4"]
 atlas = ExtResource("1_2ljj7")

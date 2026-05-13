@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Collect" format=3 uid="uid://c5ddpnselkjp7"]
+
+[ext_resource type="Texture2D" uid="uid://qec08ifxtcvp" path="res://entities/player/cannon.png" id="1_ia517"]
+[ext_resource type="Script" uid="uid://6mkybqo4gomv" path="res://resources/collects/collect.gd" id="1_vdm1k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugjw7"]
+atlas = ExtResource("1_ia517")
+region = Rect2(2, 4, 16, 16)
+
+[resource]
+script = ExtResource("1_vdm1k")
+name = "Unlocked the Cannon!"
+description = "You can you click on the screen to fire a cannon ball. These can destroy sea mines, weak blocks, and anything else that can take damage!"
+icon = SubResource("AtlasTexture_ugjw7")
+metadata/_custom_type_script = "uid://6mkybqo4gomv"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Collect" format=3 uid="uid://cm52wf86pww7m"]
+
+[ext_resource type="Texture2D" uid="uid://dvg36e726w2ft" path="res://entities/collectable/hull_icons.png" id="1_jtugm"]
+[ext_resource type="Script" uid="uid://6mkybqo4gomv" path="res://resources/collects/collect.gd" id="1_lpk8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxgxl"]
+atlas = ExtResource("1_jtugm")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_lpk8h")
+name = "Advanced Hull!"
+description = "You can now traverse deeper depths without taking an oxygen penalty!"
+icon = SubResource("AtlasTexture_pxgxl")
+metadata/_custom_type_script = "uid://6mkybqo4gomv"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Collect" format=3 uid="uid://jivonm6v4pkb"]
+
+[ext_resource type="Texture2D" uid="uid://c05itfr2iwv7j" path="res://entities/collectable/dash_icon.png" id="1_6c3sy"]
+[ext_resource type="Script" uid="uid://6mkybqo4gomv" path="res://resources/collects/collect.gd" id="1_freas"]
+
+[resource]
+script = ExtResource("1_freas")
+name = "Unlocked the Dash"
+description = "You can now hold shift to dash for a short period! This also unlocked 2 upgrades for dash power and dash time."
+icon = ExtResource("1_6c3sy")
+metadata/_custom_type_script = "uid://6mkybqo4gomv"

@@ -35,6 +35,9 @@ var origin: Vector2
 ## Maps [enum SpriteType] to a texture to display
 @export var variant_sprites: Dictionary[SpriteType, Texture2D] = {}
 
+## The info to show on the collection screen
+@export var collect_info: Collect
+
 # --- Functions --- #
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -58,7 +61,7 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	rotation_degrees = sin(Time.get_ticks_msec() / 1000.0) * 30
+	rotation_degrees = sin(Time.get_ticks_msec() / 1000.0) * 20
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group(&'player'):
@@ -79,6 +82,10 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	# reload unlocks
 	Globals.player.reload_unlocked()
+	
+	# show collection
+	if collect_info:
+		Globals.collect_panel.load_collect_info(collect_info)
 	
 	# play collection animation
 	$'particles'.emitting = true

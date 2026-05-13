@@ -8,6 +8,7 @@ enum GameState {
 	GAMEPLAY,
 	DEATH,
 	UPGRADES,
+	PAUSED,
 }
 
 # --- Variables --- #

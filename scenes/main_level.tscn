@@ -5,13 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://b0arvdya2di62" path="res://entities/sea_mine/sea_mine.tscn" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://qph6j0xmn8uh" path="res://entities/pearl/pearl.tscn" id="4_u2c82"]
 [ext_resource type="PackedScene" uid="uid://dcs88e3rhxtq2" path="res://entities/collectable/collectable.tscn" id="5_8ra5a"]
-[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="6_k5pu3"]
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://resources/upgrades/upgrade.gd" id="6_k5pu3"]
 [ext_resource type="Resource" uid="uid://bhqwf5keq8yco" path="res://resources/upgrades/jet_capacity.tres" id="7_iqu8w"]
 [ext_resource type="Resource" uid="uid://doykvw5b37jrv" path="res://resources/upgrades/jet_thrust.tres" id="8_5fr2l"]
 [ext_resource type="Resource" uid="uid://c03nb8lmgsnqv" path="res://resources/upgrades/max_depth.tres" id="9_iqu8w"]
+[ext_resource type="Resource" uid="uid://jivonm6v4pkb" path="res://resources/collects/dash.tres" id="9_mwgft"]
 [ext_resource type="Resource" uid="uid://cm8tecaa3beam" path="res://resources/upgrades/cannon_capacity.tres" id="10_2sb77"]
 [ext_resource type="Resource" uid="uid://b7m2hjyho11f8" path="res://resources/upgrades/cannon_power.tres" id="11_fkrx8"]
+[ext_resource type="Resource" uid="uid://b0lp1bhekwhxj" path="res://resources/collects/hull_1.tres" id="11_uk2yf"]
 [ext_resource type="PackedScene" uid="uid://bla0gv3x8t1d3" path="res://entities/block/block.tscn" id="12_fkrx8"]
+[ext_resource type="Resource" uid="uid://cm52wf86pww7m" path="res://resources/collects/hull_2.tres" id="12_ondrs"]
+[ext_resource type="Resource" uid="uid://c5ddpnselkjp7" path="res://resources/collects/cannon.tres" id="15_0e4v7"]
 
 [sub_resource type="Animation" id="Animation_jnd77"]
 length = 0.001
@@ -1559,11 +1563,13 @@ variant = 1
 position = Vector2(410, 293)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("7_iqu8w"), ExtResource("8_5fr2l")])
 variant = 2
+collect_info = ExtResource("9_mwgft")
 
 [node name="collectable_2" parent="." unique_id=1559420551 instance=ExtResource("5_8ra5a")]
 position = Vector2(-500, 402)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("9_iqu8w")])
 upgrade_level = 2
+collect_info = ExtResource("11_uk2yf")
 
 [node name="animator" type="AnimationPlayer" parent="collectable_2" unique_id=1584291431]
 libraries/ = SubResource("AnimationLibrary_jnd77")
@@ -1573,11 +1579,13 @@ position = Vector2(508, 929)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("9_iqu8w")])
 upgrade_level = 3
 variant = 1
+collect_info = ExtResource("12_ondrs")
 
 [node name="collectable_4" parent="." unique_id=703700454 instance=ExtResource("5_8ra5a")]
 position = Vector2(-360, 1242)
 upgrades = Array[ExtResource("6_k5pu3")]([ExtResource("10_2sb77"), ExtResource("11_fkrx8")])
 variant = 3
+collect_info = ExtResource("15_0e4v7")
 
 [node name="block" parent="." unique_id=1793371811 instance=ExtResource("12_fkrx8")]
 position = Vector2(32, 1344)

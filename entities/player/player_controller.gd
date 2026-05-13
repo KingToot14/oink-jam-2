@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	var move_dir := Input.get_axis(&'move_backward', &'move_forward')
 	var turn_dir := Input.get_axis(&'turn_left', &'turn_right')
 	
-	var turn_mod := curr_speed / move_speed
+	var turn_mod := absf(curr_speed / move_speed)
 	
 	# update direction
 	if move_dir < 0.0:
@@ -235,6 +235,8 @@ func reload_unlocked() -> void:
 		max_dash_time = Upgrades.get_upgrade_value(&'jet_capacity')
 		
 		dash_time = max_dash_time
+		
+		dash_used.emit()
 	
 	# cannon
 	if max_ammo == 0:
@@ -244,6 +246,8 @@ func reload_unlocked() -> void:
 		curr_ammo = max_ammo
 		
 		$'cannon'.visible = max_ammo > 0
+		
+		cannon_fired.emit()
 
 ## Enables collision when the game is started
 func start_game() -> void:

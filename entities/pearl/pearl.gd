@@ -35,6 +35,9 @@ var collected := false
 ## The original position this pearl is in. This is used for anchoring the bobbing animation
 var origin: Vector2
 
+## The collect info that displays the first time the player collects a pearl
+@export var pearl_info: Collect
+
 # --- Functions --- #
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -62,6 +65,11 @@ func _on_body_entered(body: Node2D) -> void:
 	# collect pearl
 	collected = true
 	CurrencyManager.collect_pearl(variant)
+	
+	# show first collection info
+	if not Globals.pearl_collected:
+		Globals.collect_panel.load_collect_info(pearl_info)
+		Globals.pearl_collected = true
 	
 	# play collection animation
 	$'particles'.emitting = true

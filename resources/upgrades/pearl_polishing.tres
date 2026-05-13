@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b1aj4d41enbko"]
 
-[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://ui/upgrades/upgrade.gd" id="1_ehkcp"]
+[ext_resource type="Script" uid="uid://b1ph6t32gauix" path="res://resources/upgrades/upgrade.gd" id="1_ehkcp"]
 [ext_resource type="Texture2D" uid="uid://l6x3tbnu08jo" path="res://ui/upgrades/upgrade_icons.png" id="1_qn7ys"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_upy6e"]
