@@ -3,14 +3,21 @@
 [ext_resource type="Script" uid="uid://ck5fw1tubjg42" path="res://scripts/game_loop/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://dstl4l2tlagnx" path="res://scripts/game_loop/game_timer.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c3r2lks7wjia6" path="res://entities/player/player.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="5_fv21b"]
+[ext_resource type="AudioStream" uid="uid://us0eiwk5fg6j" path="res://ui/sfx/upgrade.tres" id="5_kmb1v"]
 [ext_resource type="Script" uid="uid://b2i4ummqn048l" path="res://ui/gameplay/gameplay_ui.gd" id="5_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dwjtwwgagyq0y" path="res://ui/gameplay/oxygen_meter.png" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="6_j8jky"]
 [ext_resource type="Texture2D" uid="uid://dltorb6fyix47" path="res://ui/gameplay/oxygen_bar.png" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cucm4dnvuuvbi" path="res://ui/sfx/Fantasy_UI (7).wav" id="7_kmb1v"]
 [ext_resource type="Texture2D" uid="uid://drbfhbb85g2y4" path="res://ui/gameplay/cannon_ball_icon.png" id="7_og1vs"]
+[ext_resource type="AudioStream" uid="uid://dkt0cxkdw0wch" path="res://ui/sfx/Fantasy_UI (11).wav" id="8_fuf3a"]
 [ext_resource type="Texture2D" uid="uid://dp84an16v4g21" path="res://ui/gameplay/currency_meter.png" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://bddi2jca8vfbk" path="res://ui/gameplay/currency_icons.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dcaqk3o6g51y" path="res://ui/base_panel.png" id="9_choun"]
 [ext_resource type="Script" uid="uid://crshsoplx88kf" path="res://ui/gameplay/death_panel.gd" id="9_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://buqhus32xkp0k" path="res://ui/sfx/Fantasy_UI (12).wav" id="9_pibwh"]
+[ext_resource type="AudioStream" uid="uid://ca4c3jbkuvj2b" path="res://ui/sfx/Piano_Ui (3).wav" id="10_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://dkpvfw281amch" path="res://ui/smooth_panel.png" id="10_choun"]
 [ext_resource type="Script" uid="uid://0simyse5dedc" path="res://ui/gameplay/simple_button.gd" id="11_ya4ey"]
 [ext_resource type="Script" uid="uid://brog8ctves5fc" path="res://ui/upgrades/upgrade_manager.gd" id="13_pm3ni"]
@@ -29,6 +36,29 @@
 [ext_resource type="Texture2D" uid="uid://crvg8g25nkbdk" path="res://ui/title/title.png" id="27_vxglm"]
 [ext_resource type="Texture2D" uid="uid://c05itfr2iwv7j" path="res://entities/collectable/dash_icon.png" id="28_2f3dj"]
 [ext_resource type="Script" uid="uid://b3axkvfqjcspu" path="res://ui/gameplay/collect_panel.gd" id="28_yq6so"]
+
+[sub_resource type="Resource" id="Resource_5he1u"]
+script = ExtResource("6_j8jky")
+stream = ExtResource("7_kmb1v")
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_5poiv"]
+script = ExtResource("6_j8jky")
+stream = ExtResource("8_fuf3a")
+volume = -4.0
+pitch_scale = 1.5
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_2cjbq"]
+script = ExtResource("6_j8jky")
+stream = ExtResource("9_pibwh")
+volume = -4.0
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_chjal"]
+script = ExtResource("6_j8jky")
+stream = ExtResource("10_c6pm6")
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("9_85g3d")
@@ -60,6 +90,19 @@ unique_name_in_owner = true
 [node name="ui" type="CanvasLayer" parent="." unique_id=529712363]
 unique_name_in_owner = true
 script = ExtResource("5_o6xl0")
+
+[node name="ui_sfx" type="AudioStreamPlayer2D" parent="ui" unique_id=1741268222]
+unique_name_in_owner = true
+stream = ExtResource("5_kmb1v")
+script = ExtResource("5_fv21b")
+is_spacial = false
+sfx_library = Dictionary[StringName, ExtResource("6_j8jky")]({
+&"collect": SubResource("Resource_5he1u"),
+&"ui_close": SubResource("Resource_2cjbq"),
+&"ui_press": SubResource("Resource_5poiv"),
+&"upgrade": SubResource("Resource_chjal")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 
 [node name="oxygen_bar" type="TextureRect" parent="ui" unique_id=1142015908]
 anchors_preset = 2
@@ -2414,6 +2457,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="collect_panel" type="Control" parent="ui" unique_id=1706391166]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -3066,13 +3110,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="ui/title/buttons/start_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/title/buttons/start_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_press"]]
 [connection signal="pressed" from="ui/title/buttons/settings_button" to="ui/settings" method="show"]
+[connection signal="pressed" from="ui/title/buttons/settings_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_press"]]
 [connection signal="pressed" from="ui/title/buttons/about_button" to="ui/about" method="show"]
+[connection signal="pressed" from="ui/title/buttons/about_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_press"]]
 [connection signal="pressed" from="ui/death_oxygen/retry_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/death_oxygen/retry_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]
 [connection signal="pressed" from="ui/death_oxygen/upgrade_button" to="." method="open_upgrades"]
+[connection signal="pressed" from="ui/death_oxygen/upgrade_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_press"]]
 [connection signal="pressed" from="ui/death_health/retry_button" to="." method="reload_game"]
+[connection signal="pressed" from="ui/death_health/retry_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]
 [connection signal="pressed" from="ui/death_health/upgrade_button" to="." method="open_upgrades"]
+[connection signal="pressed" from="ui/death_health/upgrade_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_press"]]
 [connection signal="pressed" from="ui/upgrades/retry_button" to="." method="load_level"]
+[connection signal="pressed" from="ui/upgrades/retry_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]
 [connection signal="pressed" from="ui/collect_panel/close_button" to="ui/collect_panel" method="hide_panel"]
+[connection signal="pressed" from="ui/collect_panel/close_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]
 [connection signal="pressed" from="ui/settings/close_button" to="ui/settings" method="hide"]
+[connection signal="pressed" from="ui/settings/close_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]
 [connection signal="pressed" from="ui/about/close_button" to="ui/about" method="hide"]
+[connection signal="pressed" from="ui/about/close_button" to="ui/ui_sfx" method="play_sfx" binds= [&"ui_close"]]

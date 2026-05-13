@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://us0eiwk5fg6j"]
+
+[ext_resource type="AudioStream" uid="uid://ca4c3jbkuvj2b" path="res://ui/sfx/Piano_Ui (3).wav" id="1_cmtjd"]
+
+[resource]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("1_cmtjd")

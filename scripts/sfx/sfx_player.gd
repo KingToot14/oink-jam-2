@@ -2,23 +2,31 @@ class_name SfxPlayer
 extends AudioStreamPlayer2D
 
 # --- Variables --- #
+## If [code]true[/code], uses [AudioStreamPlayer2D], otherwise uses [AudioStreamPlayer]
+@export var is_spacial := true
+
 ## Holds a library of sound effects referencable by key. These are primarily used in
 ## the [method play_sfx] method
 @export var sfx_library: Dictionary[StringName, SoundEffect] = {}
 
 ## References to all the [AudioStreamPlayer2D]s that handle the sound effects
-var sfx_players: Dictionary[StringName, AudioStreamPlayer2D] = {}
+var sfx_players: Dictionary[StringName, Node] = {}
 
 # --- Functions --- #
 func _ready() -> void:
 	# create a sfx player for each loaded sound
 	for sfx: StringName in sfx_library.keys():
 		# create a new player
-		var player := AudioStreamPlayer2D.new()
-		player.max_polyphony = 8
+		var player: Node
 		
-		player.attenuation = attenuation
-		player.max_distance = max_distance
+		if is_spacial:
+			player = AudioStreamPlayer2D.new()
+			player.attenuation = attenuation
+			player.max_distance = max_distance
+		else:
+			player = AudioStreamPlayer.new()
+		
+		player.max_polyphony = 8
 		player.bus = bus
 		
 		# load the sfx

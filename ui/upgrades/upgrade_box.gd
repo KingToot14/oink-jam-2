@@ -55,4 +55,7 @@ func try_upgrade() -> void:
 	if not upgrade.try_upgrade_level():
 		return
 	
+	# play sfx
+	$'sfx'.play_sfx(&'upgrade')
+	
 	update_info()

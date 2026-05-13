@@ -2,7 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://dkpvfw281amch" path="res://ui/smooth_panel.png" id="1_pkvyj"]
 [ext_resource type="Script" uid="uid://cm4rrasenyr6i" path="res://ui/upgrades/upgrade_box.gd" id="1_ro7to"]
+[ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="2_4xi3k"]
+[ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="3_6ongt"]
 [ext_resource type="Texture2D" uid="uid://bddi2jca8vfbk" path="res://ui/gameplay/currency_icons.png" id="3_737eu"]
+[ext_resource type="AudioStream" uid="uid://ca4c3jbkuvj2b" path="res://ui/sfx/Piano_Ui (3).wav" id="4_sqax3"]
+
+[sub_resource type="Resource" id="Resource_bshyc"]
+script = ExtResource("3_6ongt")
+stream = ExtResource("4_sqax3")
+volume = -4.0
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xi3k"]
 atlas = ExtResource("3_737eu")
@@ -93,6 +102,14 @@ normal_color = Color(0.16862746, 0.18039216, 0.20784314, 1)
 hover_color = Color(0.3019608, 0.32156864, 0.34901962, 1)
 fill = NodePath("fill")
 metadata/_custom_type_script = "uid://0simyse5dedc"
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1584730389]
+script = ExtResource("2_4xi3k")
+is_spacial = false
+sfx_library = Dictionary[StringName, ExtResource("3_6ongt")]({
+&"upgrade": SubResource("Resource_bshyc")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 
 [node name="fill" type="NinePatchRect" parent="." unique_id=1007124396]
 self_modulate = Color(0.16862746, 0.18039216, 0.20784314, 1)

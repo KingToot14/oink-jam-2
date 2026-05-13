@@ -20,6 +20,10 @@ func _ready() -> void:
 
 ## Loads information about a [Collect]
 func load_collect_info(collect: Collect) -> void:
+	# play sfx
+	%'ui_sfx'.play_sfx(&'collect')
+	
+	# update info
 	$'name'.text = collect.name
 	$'description'.text = collect.description
 	
