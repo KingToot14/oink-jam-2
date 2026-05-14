@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_dpcjc")
 name = "You Won!"
-description = "You've reached the end of the caves! You can continue playing and maxing out every upgrade, but for now, this is the end!"
+description = "You have reached the end of the caves! You can continue playing and maxing out every upgrade, but for now, this is the end!"
 icon = ExtResource("1_hf8rj")
 metadata/_custom_type_script = "uid://6mkybqo4gomv"
