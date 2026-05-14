@@ -13,6 +13,9 @@ var run_timer := 0.0
 var curr_sec := 0.0
 
 # --- Functions --- #
+func _ready() -> void:
+	Globals.timer = self
+
 func _process(delta: float) -> void:
 	if not running or Globals.main.game_state != GameManager.GameState.GAMEPLAY:
 		return
@@ -34,7 +37,7 @@ func _process(delta: float) -> void:
 ## Starts the game timer
 func start_timer() -> void:
 	# fetch upgrades
-	run_time = Upgrades.get_upgrade_value(&'hull_capacity')
+	run_time = ceili(Upgrades.get_upgrade_value(&'hull_capacity'))
 	
 	# start timer
 	run_timer = run_time

@@ -73,7 +73,7 @@ func load_level() -> void:
 	await get_tree().create_timer(0.50).timeout
 	
 	# start game
-	%'game_timer'.start_timer()
+	#%'game_timer'.start_timer()
 	%'player'.start_game()
 	
 	set_game_state(GameState.GAMEPLAY)

@@ -60,9 +60,12 @@ func update_gold_display() -> void:
 
 ## Resets all ui counters
 func reset() -> void:
+	_on_timer_updated(ceili(Upgrades.get_upgrade_value(&'hull_capacity')))
+	
 	_on_hp_modified()
+	
 	_on_pearl_collected()
 	_on_gold_updated()
+	
 	_on_dash_used()
 	_on_cannon_fired()
-	update_gold_display()

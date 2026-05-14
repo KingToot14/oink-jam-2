@@ -7,6 +7,9 @@ var main: GameManager
 ## The current instance of the player controller
 var player: PlayerController
 
+## The current timer running for the main game loop
+var timer: GameTimer
+
 ## The current upgrade manager for the main game loop
 var upgrade_menu: UpgradeManager
 

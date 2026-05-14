@@ -164,6 +164,10 @@ func _physics_process(delta: float) -> void:
 	# do animation
 	$'animator'.speed_scale = (curr_speed / move_speed)
 	
+	# start timer if not started
+	if not Globals.timer.running and abs(move_dir) > 0.0:
+		Globals.timer.start_timer()
+	
 	# do movement
 	velocity = Vector2.from_angle(rotation + PI / 2.0) * curr_speed
 	
