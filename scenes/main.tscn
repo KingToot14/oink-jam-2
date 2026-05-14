@@ -92,6 +92,9 @@ unique_name_in_owner = true
 script = ExtResource("1_sugp2")
 metadata/_custom_type_script = "uid://dstl4l2tlagnx"
 
+[node name="tint" type="CanvasModulate" parent="." unique_id=276332071]
+color = Color(0.344, 0.35333332, 0.4, 1)
+
 [node name="player" parent="." unique_id=1913186933 instance=ExtResource("3_sugp2")]
 unique_name_in_owner = true
 

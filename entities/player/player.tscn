@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_bls4j"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="2_sglur"]
 [ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="3_7thud"]
+[ext_resource type="Texture2D" uid="uid://1deos5hsifli" path="res://entities/player/light.png" id="3_j3ovn"]
 [ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="3_qiwj3"]
 [ext_resource type="AudioStream" uid="uid://cql6wwngw5q0m" path="res://entities/player/sfx/Vehicle_Car_Engine_1000_RPM_Front_Exterior_Loop_Mono.wav" id="3_wvtmh"]
 [ext_resource type="AudioStream" uid="uid://cka34f6blvuwm" path="res://entities/player/sfx/wall_hit.tres" id="4_26q78"]
@@ -164,6 +165,15 @@ metadata/_custom_type_script = "uid://b3nlibanoldnk"
 [node name="animator" type="AnimationPlayer" parent="." unique_id=1944145475]
 libraries/ = SubResource("AnimationLibrary_j3ovn")
 autoplay = &"movement"
+
+[node name="light" type="PointLight2D" parent="." unique_id=1772590401]
+position = Vector2(0, 10)
+color = Color(1, 1, 0.78, 1)
+energy = 0.25
+shadow_enabled = true
+shadow_filter_smooth = 2.0
+texture = ExtResource("3_j3ovn")
+offset = Vector2(0, 32)
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=2117946755]
 stream = ExtResource("4_26q78")
