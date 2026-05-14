@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://e36x44dt1c65"]
+
+[ext_resource type="Script" uid="uid://b8ddv8rtu5rg6" path="res://ui/settings/option_slider.gd" id="1_trdqd"]
+[ext_resource type="Texture2D" uid="uid://dkpvfw281amch" path="res://ui/smooth_panel.png" id="2_tutvq"]
+
+[node name="slider" type="Control" unique_id=499840122]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 6.0
+script = ExtResource("1_trdqd")
+
+[node name="backing" type="NinePatchRect" parent="." unique_id=1214271802]
+self_modulate = Color(0.14117648, 0.15294118, 0.18039216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tutvq")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="fill" type="NinePatchRect" parent="." unique_id=349833198]
+self_modulate = Color(0.2627451, 0.28235295, 0.30980393, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tutvq")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="handle" type="NinePatchRect" parent="." unique_id=1164000916]
+self_modulate = Color(0.3019608, 0.32156864, 0.34901962, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 7.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = ExtResource("2_tutvq")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bla0gv3x8t1d3" path="res://entities/block/block.tscn" id="12_fkrx8"]
 [ext_resource type="Resource" uid="uid://cm52wf86pww7m" path="res://resources/collects/hull_2.tres" id="12_ondrs"]
 [ext_resource type="Resource" uid="uid://c5ddpnselkjp7" path="res://resources/collects/cannon.tres" id="15_0e4v7"]
+[ext_resource type="PackedScene" uid="uid://cbit5yquwp2ko" path="res://entities/gold_stacks/gold_stacks.tscn" id="17_ondrs"]
 
 [sub_resource type="Animation" id="Animation_jnd77"]
 length = 0.001
@@ -1059,6 +1060,30 @@ variant = 1
 position = Vector2(17, 1937)
 variant = 1
 
+[node name="pearl_328" parent="pearls" unique_id=1982619312 instance=ExtResource("4_u2c82")]
+position = Vector2(-1, 1977)
+variant = 1
+
+[node name="pearl_329" parent="pearls" unique_id=57683454 instance=ExtResource("4_u2c82")]
+position = Vector2(-72, 1957)
+variant = 1
+
+[node name="pearl_330" parent="pearls" unique_id=1083216593 instance=ExtResource("4_u2c82")]
+position = Vector2(6, 1870)
+variant = 1
+
+[node name="pearl_331" parent="pearls" unique_id=1653577502 instance=ExtResource("4_u2c82")]
+position = Vector2(154, 2025)
+variant = 1
+
+[node name="pearl_332" parent="pearls" unique_id=1639887959 instance=ExtResource("4_u2c82")]
+position = Vector2(48, 2011)
+variant = 1
+
+[node name="pearl_333" parent="pearls" unique_id=1723026805 instance=ExtResource("4_u2c82")]
+position = Vector2(221, 1950)
+variant = 1
+
 [node name="pearl_309" parent="pearls" unique_id=10645546 instance=ExtResource("4_u2c82")]
 position = Vector2(-31, 1962)
 variant = 2
@@ -1109,6 +1134,22 @@ variant = 2
 
 [node name="pearl_321" parent="pearls" unique_id=1465390453 instance=ExtResource("4_u2c82")]
 position = Vector2(235, 1977)
+variant = 2
+
+[node name="pearl_334" parent="pearls" unique_id=2004403198 instance=ExtResource("4_u2c82")]
+position = Vector2(185, 2027)
+variant = 2
+
+[node name="pearl_335" parent="pearls" unique_id=1710995090 instance=ExtResource("4_u2c82")]
+position = Vector2(61, 1862)
+variant = 1
+
+[node name="pearl_336" parent="pearls" unique_id=1237933289 instance=ExtResource("4_u2c82")]
+position = Vector2(157, 1895)
+variant = 2
+
+[node name="pearl_337" parent="pearls" unique_id=1205662628 instance=ExtResource("4_u2c82")]
+position = Vector2(-74, 1887)
 variant = 2
 
 [node name="pearl_322" parent="pearls" unique_id=1019533785 instance=ExtResource("4_u2c82")]
@@ -1622,3 +1663,6 @@ position = Vector2(112, 1792)
 
 [node name="block_9" parent="." unique_id=1940294820 instance=ExtResource("12_fkrx8")]
 position = Vector2(272, 1248)
+
+[node name="gold_stacks" parent="." unique_id=249663251 instance=ExtResource("17_ondrs")]
+position = Vector2(72, 1948)

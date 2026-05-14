@@ -33,6 +33,9 @@ func clear_counts() -> void:
 func collect_pearl(variant: Pearl.PearlVariant) -> void:
 	pearl_counts[variant] += 1
 	
+	# clamp to 99 stacks
+	pearl_counts[variant] = mini(pearl_counts[variant], 99)
+	
 	pearl_collected.emit()
 
 ## Adds gold to the current count

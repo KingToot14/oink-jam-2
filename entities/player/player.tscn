@@ -58,15 +58,15 @@ stream = ExtResource("3_7thud")
 pitch_scale = 0.75
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
+[sub_resource type="Resource" id="Resource_wvtmh"]
+script = ExtResource("4_bectd")
+stream = ExtResource("4_26q78")
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
 [sub_resource type="Resource" id="Resource_7thud"]
 script = ExtResource("4_bectd")
 stream = ExtResource("3_wvtmh")
 volume = -6.0
-metadata/_custom_type_script = "uid://bg0opbfyinbl3"
-
-[sub_resource type="Resource" id="Resource_wvtmh"]
-script = ExtResource("4_bectd")
-stream = ExtResource("4_26q78")
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Curve" id="Curve_j3ovn"]
@@ -171,8 +171,16 @@ bus = &"Underwater"
 script = ExtResource("3_qiwj3")
 sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({
 &"cannon": SubResource("Resource_a1qjk"),
-&"engine": SubResource("Resource_7thud"),
 &"wall_hit": SubResource("Resource_wvtmh")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
+
+[node name="engine_sfx" type="AudioStreamPlayer2D" parent="." unique_id=484753339]
+stream = ExtResource("4_26q78")
+bus = &"Underwater"
+script = ExtResource("3_qiwj3")
+sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({
+&"engine": SubResource("Resource_7thud")
 })
 metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 

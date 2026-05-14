@@ -10,12 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Oink Jam 2"
+config/name="Pressure Panic!"
+config/description="PRESSURE PANIC! was created for the second Oink Jam. There were two themes for this jam, and I picked the theme of \"Under Pressure\". This game surrounds a simple loop where you must collect pearls, collect powerful upgrades, and find secrets before your oxygen runs out!"
+config/version="1.0.0"
 run/main_scene="uid://d108vei8hsme3"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KingToot/Oink Jam 2"
 config/features=PackedStringArray("4.6")
-config/icon="res://icon.svg"
+config/icon="uid://b1vhdfqy72a12"
+config/windows_native_icon="res://icon.ico"
 
 [audio]
 

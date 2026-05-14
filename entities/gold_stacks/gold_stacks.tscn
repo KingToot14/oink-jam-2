@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cbit5yquwp2ko"]
+
+[ext_resource type="Script" uid="uid://cvrb70s32ushm" path="res://entities/gold_stacks/gold_stacks.gd" id="1_xyrdj"]
+[ext_resource type="Texture2D" uid="uid://cxwh1uq8j0te1" path="res://entities/gold_stacks/main.png" id="2_h7npl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7npl"]
+radius = 14.0
+height = 38.0
+
+[node name="gold_stacks" type="Area2D" unique_id=249663251]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_xyrdj")
+metadata/_custom_type_script = "uid://cvrb70s32ushm"
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=992437792]
+texture = ExtResource("2_h7npl")
+
+[node name="shape" type="CollisionShape2D" parent="." unique_id=1748335859]
+position = Vector2(0, 1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_h7npl")

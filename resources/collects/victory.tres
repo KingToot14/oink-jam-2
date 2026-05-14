@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Collect" format=3 uid="uid://d3jcbqb0tx86n"]
+
+[ext_resource type="Script" uid="uid://6mkybqo4gomv" path="res://resources/collects/collect.gd" id="1_dpcjc"]
+[ext_resource type="Texture2D" uid="uid://dasiclhda6glp" path="res://entities/gold_stacks/crown.png" id="1_hf8rj"]
+
+[resource]
+script = ExtResource("1_dpcjc")
+name = "You Won!"
+description = "You've reached the end of the caves! You can continue playing and maxing out every upgrade, but for now, this is the end!"
+icon = ExtResource("1_hf8rj")
+metadata/_custom_type_script = "uid://6mkybqo4gomv"
