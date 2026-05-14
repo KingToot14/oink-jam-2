@@ -11,20 +11,16 @@
 [ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="5_rinrt"]
 [ext_resource type="AudioStream" uid="uid://c3y7enb0sj5ji" path="res://entities/sea_mine/sfx/bubbles.tres" id="6_42f7w"]
 
-[sub_resource type="Resource" id="Resource_1qbyy"]
-script = ExtResource("4_42f7w")
-stream = ExtResource("5_rinrt")
-pitch_scale = 0.25
-metadata/_custom_type_script = "uid://bg0opbfyinbl3"
-
 [sub_resource type="Resource" id="Resource_w7nk0"]
 script = ExtResource("4_42f7w")
 stream = ExtResource("6_42f7w")
 volume = -10.0
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
-[sub_resource type="Resource" id="Resource_e7uht"]
+[sub_resource type="Resource" id="Resource_1qbyy"]
 script = ExtResource("4_42f7w")
+stream = ExtResource("5_rinrt")
+pitch_scale = 0.25
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Animation" id="Animation_12yh4"]
@@ -145,10 +141,10 @@ script = ExtResource("2_p6luf")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1376961910]
+bus = &"Underwater"
 script = ExtResource("3_4jocw")
 sfx_library = Dictionary[StringName, ExtResource("4_42f7w")]({
 &"bubble": SubResource("Resource_w7nk0"),
-&"cracking": SubResource("Resource_e7uht"),
 &"explode": SubResource("Resource_1qbyy")
 })
 metadata/_custom_type_script = "uid://ygrh7jtg8r5i"

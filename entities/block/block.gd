@@ -10,10 +10,10 @@ func _ready() -> void:
 
 func _on_died() -> void:
 	# disable collision
-	$'shape'.disabled = true
+	$'shape'.queue_free()
 	
 	# play sfx
-	$'sfx'.play_sfx(&'explosion')
+	$'sfx'.play_sfx(&'explode')
 	$'sfx'.play_sfx(&'bubble')
 	
 	# play animation

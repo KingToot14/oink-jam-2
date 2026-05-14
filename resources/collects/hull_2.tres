@@ -10,6 +10,6 @@ region = Rect2(16, 0, 16, 16)
 [resource]
 script = ExtResource("1_lpk8h")
 name = "Advanced Hull!"
-description = "You can now traverse deeper depths without taking an oxygen penalty!"
+description = "You can now traverse even deeper depths without taking an oxygen penalty!"
 icon = SubResource("AtlasTexture_pxgxl")
 metadata/_custom_type_script = "uid://6mkybqo4gomv"

@@ -550,7 +550,7 @@ grow_vertical = 2
 [node name="background" type="Parallax2D" parent="ui/title" unique_id=938884184]
 repeat_size = Vector2(512, 320)
 autoscroll = Vector2(4, 4)
-repeat_times = 2
+repeat_times = 3
 
 [node name="fill" type="TextureRect" parent="ui/title/background" unique_id=498882837]
 offset_right = 512.0
