@@ -12,9 +12,10 @@
 [ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="5_fkugw"]
 [ext_resource type="Texture2D" uid="uid://qec08ifxtcvp" path="res://entities/player/cannon.png" id="6_8fjmc"]
 
-[sub_resource type="Resource" id="Resource_wvtmh"]
+[sub_resource type="Resource" id="Resource_a1qjk"]
 script = ExtResource("4_bectd")
-stream = ExtResource("4_26q78")
+stream = ExtResource("3_7thud")
+pitch_scale = 0.75
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Resource" id="Resource_7thud"]
@@ -23,10 +24,9 @@ stream = ExtResource("3_wvtmh")
 volume = -6.0
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
-[sub_resource type="Resource" id="Resource_a1qjk"]
+[sub_resource type="Resource" id="Resource_wvtmh"]
 script = ExtResource("4_bectd")
-stream = ExtResource("3_7thud")
-pitch_scale = 0.75
+stream = ExtResource("4_26q78")
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
@@ -113,8 +113,7 @@ script = ExtResource("2_bls4j")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=2117946755]
-stream = ExtResource("3_7thud")
-pitch_scale = 0.25
+stream = ExtResource("4_26q78")
 bus = &"Underwater"
 script = ExtResource("3_qiwj3")
 sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({

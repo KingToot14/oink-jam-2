@@ -11,17 +11,18 @@
 [ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="4_5ryts"]
 [ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="4_wxwcc"]
 [ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="5_trgcs"]
-
-[sub_resource type="Resource" id="Resource_mempu"]
-script = ExtResource("4_wxwcc")
-stream = ExtResource("5_trgcs")
-pitch_scale = 0.25
-metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+[ext_resource type="Texture2D" uid="uid://bipa4e41lx5n0" path="res://entities/particles/bubble.png" id="12_mempu"]
 
 [sub_resource type="Resource" id="Resource_trgcs"]
 script = ExtResource("4_wxwcc")
 stream = ExtResource("3_trgcs")
 volume = -10.0
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_mempu"]
+script = ExtResource("4_wxwcc")
+stream = ExtResource("5_trgcs")
+pitch_scale = 0.25
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Animation" id="Animation_jnd77"]
@@ -62,10 +63,46 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bubbles_1:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("damage_source/shape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("bubbles_2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_2twhj"]
 resource_name = "explode"
-length = 0.5
+length = 1.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -132,12 +169,48 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bubbles_1:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("damage_source/shape:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("bubbles_2:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jnd77"]
@@ -150,9 +223,18 @@ _data = {
 resource_local_to_scene = true
 shader = ExtResource("3_jnd77")
 shader_parameter/texture_size = 64.0
-shader_parameter/radius = 1.0
+shader_parameter/radius = 31.0
 shader_parameter/width = 2.0
-shader_parameter/alpha = 1.0
+shader_parameter/alpha = 0.0001522596
+
+[sub_resource type="Curve" id="Curve_vhgnc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_h75h5"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jnd77"]
 resource_local_to_scene = true
@@ -194,6 +276,41 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
+
+[node name="bubbles_1" type="CPUParticles2D" parent="." unique_id=1449206594]
+emitting = false
+texture = ExtResource("12_mempu")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+damping_min = 50.0
+damping_max = 60.0
+scale_amount_curve = SubResource("Curve_vhgnc")
+color_ramp = SubResource("Gradient_h75h5")
+
+[node name="bubbles_2" type="CPUParticles2D" parent="." unique_id=425405071]
+emitting = false
+amount = 24
+texture = ExtResource("12_mempu")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 80.0
+damping_min = 50.0
+damping_max = 60.0
+scale_amount_curve = SubResource("Curve_vhgnc")
+color_ramp = SubResource("Gradient_h75h5")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=684031600]
 material = SubResource("ShaderMaterial_jnd77")

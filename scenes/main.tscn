@@ -43,17 +43,17 @@ script = ExtResource("6_j8jky")
 stream = ExtResource("7_kmb1v")
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
+[sub_resource type="Resource" id="Resource_2cjbq"]
+script = ExtResource("6_j8jky")
+stream = ExtResource("9_pibwh")
+volume = -4.0
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
 [sub_resource type="Resource" id="Resource_5poiv"]
 script = ExtResource("6_j8jky")
 stream = ExtResource("8_fuf3a")
 volume = -4.0
 pitch_scale = 1.5
-metadata/_custom_type_script = "uid://bg0opbfyinbl3"
-
-[sub_resource type="Resource" id="Resource_2cjbq"]
-script = ExtResource("6_j8jky")
-stream = ExtResource("9_pibwh")
-volume = -4.0
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 
 [sub_resource type="Resource" id="Resource_chjal"]
@@ -2985,7 +2985,7 @@ offset_right = -6.0
 offset_bottom = 100.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0.62352943, 0.7019608, 0.8, 1)
-text = "PRESSURE PANIC! was created for the second Oink Jam. There were two themes for this jam, and I picked the them of Under Pressure. This game surrounds a simple loop where you must collect gold, explore a cave, and survive the dangerous inhabitants before your oxygen runs out!"
+text = "PRESSURE PANIC! was created for the second Oink Jam. There were two themes for this jam, and I picked the themem of Under Pressure. This game surrounds a simple loop where you must collect gold, explore a cave, and survive the dangerous inhabitants before your oxygen runs out!"
 
 [node name="credits" type="RichTextLabel" parent="ui/about" unique_id=1218449915]
 layout_mode = 1

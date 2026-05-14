@@ -8,10 +8,12 @@ var upgrades: Dictionary[StringName, Upgrade] = {}
 func _ready() -> void:
 	# dynamically map upgrades to keys
 	for file: String in DirAccess.get_files_at("res://resources/upgrades"):
-		if file.ends_with(".gd"):
+		var clean := file.trim_suffix(".remap")
+		
+		if not clean.ends_with(".tres"):
 			continue
 		
-		upgrades[file.split('.')[0]] = load("res://resources/upgrades".path_join(file))
+		upgrades[file.split('.')[0]] = load("res://resources/upgrades".path_join(clean))
 
 ## Gets the current value of the upgrade identified by [param upgrade_key]. This
 ## uses [method Upgrade.get_value] to get the correct value

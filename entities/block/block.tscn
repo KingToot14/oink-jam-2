@@ -3,9 +3,45 @@
 [ext_resource type="Script" uid="uid://secq77mk7ued" path="res://entities/block/block.gd" id="1_v713e"]
 [ext_resource type="Texture2D" uid="uid://vhw0g36kq0l0" path="res://entities/block/main.png" id="2_e1cl0"]
 [ext_resource type="Script" uid="uid://b3nlibanoldnk" path="res://entities/_scripts/hp_component.gd" id="2_p6luf"]
+[ext_resource type="Script" uid="uid://ygrh7jtg8r5i" path="res://scripts/sfx/sfx_player.gd" id="3_4jocw"]
 [ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="3_ged6v"]
 [ext_resource type="Shader" uid="uid://br8r03hctk3q1" path="res://entities/_shaders/ring.gdshader" id="3_wy03r"]
 [ext_resource type="Shader" uid="uid://briq8sq1hpmyc" path="res://entities/_shaders/flash.gdshader" id="4_12yh4"]
+[ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="4_42f7w"]
+[ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="5_rinrt"]
+[ext_resource type="AudioStream" uid="uid://c3y7enb0sj5ji" path="res://entities/sea_mine/sfx/bubbles.tres" id="6_42f7w"]
+
+[sub_resource type="Resource" id="Resource_1qbyy"]
+script = ExtResource("4_42f7w")
+stream = ExtResource("5_rinrt")
+pitch_scale = 0.25
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_w7nk0"]
+script = ExtResource("4_42f7w")
+stream = ExtResource("6_42f7w")
+volume = -10.0
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Resource" id="Resource_e7uht"]
+script = ExtResource("4_42f7w")
+metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Animation" id="Animation_12yh4"]
+resource_name = "RESET"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_wy03r"]
 resource_name = "break"
@@ -74,6 +110,7 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wy03r"]
 _data = {
+&"RESET": SubResource("Animation_12yh4"),
 &"break": SubResource("Animation_wy03r")
 }
 
@@ -89,7 +126,7 @@ shader_parameter/alpha = 1.0
 resource_local_to_scene = true
 shader = ExtResource("4_12yh4")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/intensity = 1.0
+shader_parameter/intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1cl0"]
 resource_local_to_scene = true
@@ -106,6 +143,15 @@ metadata/_custom_type_script = "uid://secq77mk7ued"
 [node name="hp" type="Node" parent="." unique_id=1792596284]
 script = ExtResource("2_p6luf")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1376961910]
+script = ExtResource("3_4jocw")
+sfx_library = Dictionary[StringName, ExtResource("4_42f7w")]({
+&"bubble": SubResource("Resource_w7nk0"),
+&"cracking": SubResource("Resource_e7uht"),
+&"explode": SubResource("Resource_1qbyy")
+})
+metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=1384245037]
 libraries/ = SubResource("AnimationLibrary_wy03r")
