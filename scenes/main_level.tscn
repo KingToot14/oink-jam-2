@@ -140,6 +140,13 @@ _data = {
 &"explode": SubResource("Animation_2twhj")
 }
 
+[sub_resource type="Gradient" id="Gradient_ondrs"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0e4v7"]
+gradient = SubResource("Gradient_ondrs")
+width = 96
+fill_from = Vector2(1, 1)
+
 [node name="level" type="Node2D" unique_id=419102240]
 
 [node name="floor" type="TileMapLayer" parent="." unique_id=527414823]
@@ -1666,3 +1673,10 @@ position = Vector2(272, 1248)
 
 [node name="gold_stacks" parent="." unique_id=249663251 instance=ExtResource("17_ondrs")]
 position = Vector2(72, 1948)
+
+[node name="entrance_light" type="PointLight2D" parent="." unique_id=1404978848]
+position = Vector2(0, -128)
+color = Color(1, 1, 0.8, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_0e4v7")
+offset = Vector2(0, 32)
