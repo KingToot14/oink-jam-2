@@ -150,6 +150,10 @@ func _physics_process(delta: float) -> void:
 			if curr_speed < -move_speed:
 				curr_speed = minf(curr_speed + move_speed * deccel_mod * delta, -move_speed)
 	
+	# update bubbles
+	$'bubbles'.emitting = absf(curr_speed) > 0.1
+	$'bubbles_dash'.emitting = absf(curr_speed) > move_speed
+	
 	# update engine audio
 	engine_player.volume_linear = minf(
 		lerpf(ENGINE_VOLUME_LOW, ENGINE_VOLUME_HIGH, absf(curr_speed / move_speed)),

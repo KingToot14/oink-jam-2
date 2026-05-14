@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="4_bectd"]
 [ext_resource type="Script" uid="uid://iwsmaoecjpf8" path="res://entities/_scripts/hitbox.gd" id="5_fkugw"]
 [ext_resource type="Texture2D" uid="uid://qec08ifxtcvp" path="res://entities/player/cannon.png" id="6_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://bipa4e41lx5n0" path="res://entities/particles/bubble.png" id="10_a1qjk"]
 
 [sub_resource type="Resource" id="Resource_a1qjk"]
 script = ExtResource("4_bectd")
@@ -28,6 +29,15 @@ metadata/_custom_type_script = "uid://bg0opbfyinbl3"
 script = ExtResource("4_bectd")
 stream = ExtResource("4_26q78")
 metadata/_custom_type_script = "uid://bg0opbfyinbl3"
+
+[sub_resource type="Curve" id="Curve_j3ovn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_afbqv"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bls4j"]
 shader = ExtResource("2_sglur")
@@ -122,6 +132,36 @@ sfx_library = Dictionary[StringName, ExtResource("4_bectd")]({
 &"wall_hit": SubResource("Resource_wvtmh")
 })
 metadata/_custom_type_script = "uid://ygrh7jtg8r5i"
+
+[node name="bubbles" type="CPUParticles2D" parent="." unique_id=1711878538]
+position = Vector2(0, -12)
+emitting = false
+texture = ExtResource("10_a1qjk")
+lifetime = 1.5
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+damping_min = 50.0
+damping_max = 60.0
+scale_amount_curve = SubResource("Curve_j3ovn")
+color_ramp = SubResource("Gradient_afbqv")
+
+[node name="bubbles_dash" type="CPUParticles2D" parent="." unique_id=1573216495]
+position = Vector2(0, -12)
+emitting = false
+texture = ExtResource("10_a1qjk")
+lifetime = 1.5
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+damping_min = 50.0
+damping_max = 60.0
+scale_amount_curve = SubResource("Curve_j3ovn")
+color_ramp = SubResource("Gradient_afbqv")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=94609615]
 material = SubResource("ShaderMaterial_bls4j")
