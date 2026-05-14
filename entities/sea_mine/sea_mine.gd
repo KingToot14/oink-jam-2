@@ -32,6 +32,10 @@ func _on_area_entered(area: Area2D) -> void:
 
 ## Handles the animation and logic for the sea mine exploding
 func explode() -> void:
+	# remove colliders
+	$'hitbox'.queue_free()
+	$'explosion_range'.queue_free()
+	
 	# play sfx
 	$'sfx'.play_sfx(&'explode')
 	$'sfx'.play_sfx(&'bubble')

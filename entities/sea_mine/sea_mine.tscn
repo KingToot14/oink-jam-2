@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://sk4j56cl65nn" path="res://entities/_scripts/damage_source.gd" id="4_5ryts"]
 [ext_resource type="Script" uid="uid://bg0opbfyinbl3" path="res://scripts/sfx/sound_effect.gd" id="4_wxwcc"]
 [ext_resource type="AudioStream" uid="uid://bht0kmnhwvvo0" path="res://entities/sea_mine/sfx/explosion.tres" id="5_trgcs"]
+[ext_resource type="Shader" uid="uid://cthnjm07172m" path="res://entities/_shaders/light_circle.gdshader" id="8_c4u6y"]
 [ext_resource type="Texture2D" uid="uid://bipa4e41lx5n0" path="res://entities/particles/bubble.png" id="12_mempu"]
 
 [sub_resource type="Resource" id="Resource_trgcs"]
@@ -78,7 +79,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("damage_source/shape:disabled")
+tracks/4/path = NodePath("bubbles_2:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -90,14 +91,25 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("bubbles_2:emitting")
+tracks/5/path = NodePath("light:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0.1, 0.1, 0.1, 1)]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("light:material:shader_parameter/radius")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_2twhj"]
@@ -191,26 +203,51 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("damage_source/shape:disabled")
+tracks/7/path = NodePath("bubbles_2:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("bubbles_2:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("damage_source/shape")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("light:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.1, 0.1, 0.1, 1), Color(0.3, 0.22000001, 0.15, 1), Color(0, 0, 0, 1)]
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("light:material:shader_parameter/radius")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, -0.18679427, -218.5493, 0.05, 58.5, 40, -0.19999999, 1.5, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jnd77"]
@@ -226,6 +263,13 @@ shader_parameter/texture_size = 64.0
 shader_parameter/radius = 31.0
 shader_parameter/width = 2.0
 shader_parameter/alpha = 0.0001522596
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhgnc"]
+resource_local_to_scene = true
+shader = ExtResource("8_c4u6y")
+shader_parameter/texture_size = 96.0
+shader_parameter/radius = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="Curve" id="Curve_vhgnc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -276,6 +320,14 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
+
+[node name="light" type="ColorRect" parent="." unique_id=349179145]
+material = SubResource("ShaderMaterial_vhgnc")
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(0.1, 0.1, 0.1, 1)
 
 [node name="bubbles_1" type="CPUParticles2D" parent="." unique_id=1449206594]
 emitting = false
