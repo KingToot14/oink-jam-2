@@ -26,6 +26,7 @@ func _on_mouse_exit() -> void:
 	# clear info text
 	Globals.upgrade_menu.deselect_upgrade(upgrade)
 
+## Updates the upgrade info
 func update_info() -> void:
 	if not upgrade or Engine.is_editor_hint():
 		return
@@ -43,10 +44,11 @@ func update_info() -> void:
 	$'level'.text = "Lvl %s" % upgrade.level
 	
 	if upgrade.level >= upgrade.max_level:
-		$'cost'.hide()
+		$'cost'.text = "Max Level!"
 	else:
 		$'cost'.text = "%s" % upgrade.get_cost()
 
+## Attempt to level up this upgrade
 func try_upgrade() -> void:
 	if not upgrade:
 		return
@@ -58,4 +60,14 @@ func try_upgrade() -> void:
 	# play sfx
 	$'sfx'.play_sfx(&'upgrade')
 	
+	# do flash animation
+	do_flash()
+	
 	update_info()
+
+## Flash the upgrade box when levelling up
+func do_flash() -> void:
+	$'flash'.modulate.a = 1.0
+	
+	var flash_tween := create_tween()
+	flash_tween.tween_property($'flash', ^'modulate:a', 0.0, 0.25)
