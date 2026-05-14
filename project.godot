@@ -38,6 +38,8 @@ window/size/viewport_height=270
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://bw7wi6xloy6d5"
+mouse_cursor/custom_image_hotspot=Vector2(2, 2)
 
 [editor]
 
