@@ -13,6 +13,45 @@
 [ext_resource type="Texture2D" uid="uid://qec08ifxtcvp" path="res://entities/player/cannon.png" id="6_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://bipa4e41lx5n0" path="res://entities/particles/bubble.png" id="10_a1qjk"]
 
+[sub_resource type="Animation" id="Animation_j3ovn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a1qjk"]
+resource_name = "movement"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3ovn"]
+_data = {
+&"RESET": SubResource("Animation_j3ovn"),
+&"movement": SubResource("Animation_a1qjk")
+}
+
 [sub_resource type="Resource" id="Resource_a1qjk"]
 script = ExtResource("4_bectd")
 stream = ExtResource("3_7thud")
@@ -122,6 +161,10 @@ metadata/_custom_type_script = "uid://t766j2pqsoyr"
 script = ExtResource("2_bls4j")
 metadata/_custom_type_script = "uid://b3nlibanoldnk"
 
+[node name="animator" type="AnimationPlayer" parent="." unique_id=1944145475]
+libraries/ = SubResource("AnimationLibrary_j3ovn")
+autoplay = &"movement"
+
 [node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=2117946755]
 stream = ExtResource("4_26q78")
 bus = &"Underwater"
@@ -166,6 +209,7 @@ color_ramp = SubResource("Gradient_afbqv")
 [node name="sprite" type="Sprite2D" parent="." unique_id=94609615]
 material = SubResource("ShaderMaterial_bls4j")
 texture = ExtResource("2_abrql")
+hframes = 5
 
 [node name="shape" type="CollisionShape2D" parent="." unique_id=1828483181]
 visible = false

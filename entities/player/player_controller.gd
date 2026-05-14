@@ -161,6 +161,9 @@ func _physics_process(delta: float) -> void:
 	)
 	engine_player.pitch_scale = lerpf(ENGINE_PITCH_LOW, ENGINE_PITCH_HIGH, absf(curr_speed / move_speed))
 	
+	# do animation
+	$'animator'.speed_scale = (curr_speed / move_speed)
+	
 	# do movement
 	velocity = Vector2.from_angle(rotation + PI / 2.0) * curr_speed
 	
@@ -305,6 +308,12 @@ func end_game() -> void:
 	
 	tween.tween_property(engine_player, ^"volume_linear", 0.0, 0.50)
 	tween.tween_property(engine_player, ^"pitch_scale", ENGINE_PITCH_LOW, 0.50)
+	
+	# stop animations
+	$'bubbles'.emitting = false
+	$'bubbles_dash'.emitting = false
+	
+	$'animator'.speed_scale = 0.0
 
 ## Fires a single torpedo towards the [member mouse_pos]
 func fire_cannon(mouse_pos: Vector2) -> void:
