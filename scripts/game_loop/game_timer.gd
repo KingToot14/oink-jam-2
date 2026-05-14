@@ -34,14 +34,17 @@ func _process(delta: float) -> void:
 		running = false
 		timer_ended.emit()
 
-## Starts the game timer
-func start_timer() -> void:
+## Resets the timer to full time
+func reset_timer() -> void:
 	# fetch upgrades
 	run_time = ceili(Upgrades.get_upgrade_value(&'hull_capacity'))
 	
 	# start timer
 	run_timer = run_time
 	curr_sec = ceili(run_time)
+
+## Starts the game timer
+func start_timer() -> void:
 	running = true
 	
 	timer_updated.emit(curr_sec)
