@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://b7m2hjyho11f8" path="res://resources/upgrades/cannon_power.tres" id="20_y6deb"]
 [ext_resource type="Resource" uid="uid://cm8tecaa3beam" path="res://resources/upgrades/cannon_capacity.tres" id="21_og1vs"]
 [ext_resource type="Resource" uid="uid://b1aj4d41enbko" path="res://resources/upgrades/pearl_polishing.tres" id="22_2wyq8"]
+[ext_resource type="Texture2D" uid="uid://dv0wjabui30a3" path="res://ui/title/edge.png" id="23_c6pm6"]
 [ext_resource type="Script" uid="uid://f2unvyrttwkk" path="res://ui/gameplay/game_transitions.gd" id="24_y6deb"]
 [ext_resource type="Texture2D" uid="uid://cuo3t3oxtq1xx" path="res://ui/title/background.png" id="26_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://crvg8g25nkbdk" path="res://ui/title/title.png" id="27_vxglm"]
@@ -551,6 +552,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="background" type="Parallax2D" parent="ui/title" unique_id=938884184]
+visible = false
 repeat_size = Vector2(512, 320)
 autoscroll = Vector2(4, 4)
 repeat_times = 3
@@ -560,6 +562,15 @@ offset_right = 512.0
 offset_bottom = 320.0
 texture = ExtResource("26_2wyq8")
 stretch_mode = 1
+
+[node name="fill" type="ColorRect" parent="ui/title" unique_id=964778217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09019608, 0.09803922, 0.13333334, 1)
 
 [node name="title" type="TextureRect" parent="ui/title" unique_id=1690385571]
 layout_mode = 1
@@ -944,6 +955,29 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="edge_bottom" type="TextureRect" parent="ui/title" unique_id=525727558]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("23_c6pm6")
+stretch_mode = 1
+
+[node name="edge_top" type="TextureRect" parent="ui/title" unique_id=709099938]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 18.0
+grow_horizontal = 2
+texture = ExtResource("23_c6pm6")
+stretch_mode = 1
+flip_h = true
+flip_v = true
 
 [node name="game_transitions" type="ColorRect" parent="ui" unique_id=1881803178]
 unique_name_in_owner = true

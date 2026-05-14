@@ -3,10 +3,14 @@ class_name UpgradeBox
 extends SimpleButton
 
 # --- Variables --- #
+## The upgrade to display in this box
 @export var upgrade: Upgrade:
 	set(_val):
 		upgrade = _val
 		update_info()
+
+## The tween responsible for flashing
+var flash_tween: Tween
 
 # --- Functions --- #
 func _ready() -> void:
@@ -69,5 +73,8 @@ func try_upgrade() -> void:
 func do_flash() -> void:
 	$'flash'.modulate.a = 1.0
 	
-	var flash_tween := create_tween()
+	if flash_tween:
+		flash_tween.kill()
+	
+	flash_tween = create_tween()
 	flash_tween.tween_property($'flash', ^'modulate:a', 0.0, 0.25)

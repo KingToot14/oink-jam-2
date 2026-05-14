@@ -44,7 +44,7 @@ func _on_pearl_collected() -> void:
 	%'white_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.WHITE]
 	%'pink_label'.text  = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.PINK]
 	%'black_label'.text = "%s" % CurrencyManager.pearl_counts[Pearl.PearlVariant.BLACK]
-
+ 
 func _on_gold_updated() -> void:
 	%'gold_label'.text = "%s" % CurrencyManager.curr_gold
 
